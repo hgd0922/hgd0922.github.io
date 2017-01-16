@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="数据库,MySQL," />
 
 
 
@@ -84,16 +84,178 @@
 
 
 
-<meta name="description" content="Sharp tools make good work">
+<meta name="description" content="特点
+MyISAM
+InnoDB
+Memory
+Archive
+
+
+
+
+存储限制
+256TB
+64TB
+有
+无
+
+
+事务安全
+-
+支持
+-
+-
+
+
+支持索引
+支持
+支持
+支持
+
+
+
+锁颗粒
+表锁
+行锁
+表锁
+行锁 
+
+
+数据压缩
+支持
+-　
+-
+支持
+
+
+支持外键
+　-
+支持
+-
+-
+
+
+
+
+MyISAM:适用于事务的处理不多的情况
+InnoDB:适用于事务处理比较多，需要有外键支持的情况">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hhh">
+<meta property="og:title" content="Mysql几种数据库引擎的特点">
 <meta property="og:url" content="http://yoursite.com/2017/01/16/Mysql几种数据库引擎的特点/index.html">
 <meta property="og:site_name" content="GdHe's Blog">
-<meta property="og:description" content="Sharp tools make good work">
-<meta property="og:updated_time" content="2017-01-16T11:40:40.135Z">
+<meta property="og:description" content="特点
+MyISAM
+InnoDB
+Memory
+Archive
+
+
+
+
+存储限制
+256TB
+64TB
+有
+无
+
+
+事务安全
+-
+支持
+-
+-
+
+
+支持索引
+支持
+支持
+支持
+
+
+
+锁颗粒
+表锁
+行锁
+表锁
+行锁 
+
+
+数据压缩
+支持
+-　
+-
+支持
+
+
+支持外键
+　-
+支持
+-
+-
+
+
+
+
+MyISAM:适用于事务的处理不多的情况
+InnoDB:适用于事务处理比较多，需要有外键支持的情况">
+<meta property="og:updated_time" content="2017-01-16T11:44:32.663Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hhh">
-<meta name="twitter:description" content="Sharp tools make good work">
+<meta name="twitter:title" content="Mysql几种数据库引擎的特点">
+<meta name="twitter:description" content="特点
+MyISAM
+InnoDB
+Memory
+Archive
+
+
+
+
+存储限制
+256TB
+64TB
+有
+无
+
+
+事务安全
+-
+支持
+-
+-
+
+
+支持索引
+支持
+支持
+支持
+
+
+
+锁颗粒
+表锁
+行锁
+表锁
+行锁 
+
+
+数据压缩
+支持
+-　
+-
+支持
+
+
+支持外键
+　-
+支持
+-
+-
+
+
+
+
+MyISAM:适用于事务的处理不多的情况
+InnoDB:适用于事务处理比较多，需要有外键支持的情况">
 
 
 
@@ -127,7 +289,7 @@
 
 
 
-  <title> hhh | GdHe's Blog </title>
+  <title> Mysql几种数据库引擎的特点 | GdHe's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -284,7 +446,7 @@
             
             
               
-                hhh
+                Mysql几种数据库引擎的特点
               
             
           </h1>
@@ -309,6 +471,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -335,7 +519,66 @@
       
 
       
-        
+        <table>
+<thead>
+<tr>
+<th>特点</th>
+<th>MyISAM</th>
+<th>InnoDB</th>
+<th>Memory</th>
+<th>Archive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>存储限制</td>
+<td>256TB</td>
+<td>64TB</td>
+<td>有</td>
+<td>无</td>
+</tr>
+<tr>
+<td>事务安全</td>
+<td>-</td>
+<td>支持</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>支持索引</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td></td>
+</tr>
+<tr>
+<td>锁颗粒</td>
+<td>表锁</td>
+<td>行锁</td>
+<td>表锁</td>
+<td>行锁 </td>
+</tr>
+<tr>
+<td>数据压缩</td>
+<td>支持</td>
+<td>-　</td>
+<td>-</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>支持外键</td>
+<td>　-</td>
+<td>支持</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>MyISAM:适用于事务的处理不多的情况</li>
+<li>InnoDB:适用于事务处理比较多，需要有外键支持的情况</li>
+</ul>
+
       
     </div>
 
@@ -376,6 +619,14 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据库/" rel="tag"># 数据库</a>
+          
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          
+        </div>
       
 
       
@@ -469,7 +720,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
