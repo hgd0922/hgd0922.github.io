@@ -84,15 +84,15 @@
 
 
 
-<meta name="description" content="自己选择的路，再难也要走下去">
+<meta name="description" content="Sharp tools make good work">
 <meta property="og:type" content="website">
 <meta property="og:title" content="GdHe's Blog">
 <meta property="og:url" content="http://yoursite.com/tags/算法/index.html">
 <meta property="og:site_name" content="GdHe's Blog">
-<meta property="og:description" content="自己选择的路，再难也要走下去">
+<meta property="og:description" content="Sharp tools make good work">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GdHe's Blog">
-<meta name="twitter:description" content="自己选择的路，再难也要走下去">
+<meta name="twitter:description" content="Sharp tools make good work">
 
 
 
@@ -101,7 +101,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"right","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -147,7 +147,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-right  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -201,6 +201,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -222,9 +232,47 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -312,7 +360,7 @@
                src="/images/avatar.jpg"
                alt="gdHe" />
           <p class="site-author-name" itemprop="name">gdHe</p>
-          <p class="site-description motion-element" itemprop="description">自己选择的路，再难也要走下去</p>
+          <p class="site-description motion-element" itemprop="description">Sharp tools make good work</p>
         </div>
         <nav class="site-state motion-element">
         
@@ -527,6 +575,19 @@
   
 
   
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
 
 
 </body>

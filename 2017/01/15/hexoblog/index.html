@@ -116,7 +116,7 @@
 打开git bash
 设置uesr.name和user.email
 12git config -global user.name &amp;qu">
-<meta property="og:updated_time" content="2017-01-15T18:35:27.020Z">
+<meta property="og:updated_time" content="2017-01-16T04:22:47.981Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitHub Page+Hexo搭建博客详细教程">
 <meta name="twitter:description" content="安装Node.js
@@ -141,7 +141,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"right","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -187,7 +187,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -241,6 +241,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -262,9 +272,47 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -431,6 +479,10 @@
 </li>
 <li><p>username为你的github用户名</p>
 </li>
+<li>清除已经生成的静态页面<pre><code>hexo clean
+</code></pre></li>
+<li>重新生成静态页面<pre><code>hexo generate
+</code></pre></li>
 <li>部署<pre><code>hexo deploy
 </code></pre>打开浏览器访问<a href="http://username.github.io" target="_blank" rel="external">http://username.github.io</a> ，可以进入blog页面</li>
 </ul>
@@ -560,7 +612,7 @@
                src="/images/avatar.jpg"
                alt="gdHe" />
           <p class="site-author-name" itemprop="name">gdHe</p>
-          <p class="site-description motion-element" itemprop="description">自己选择的路，再难也要走下去</p>
+          <p class="site-description motion-element" itemprop="description">Sharp tools make good work</p>
         </div>
         <nav class="site-state motion-element">
         
@@ -799,6 +851,19 @@
   
 
   
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
 
 
 </body>
