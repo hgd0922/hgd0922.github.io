@@ -86,14 +86,14 @@
 
 <meta name="description" content="多态
 多态的定义：指允许不同类的对象对同一消息做出响应。即同一消息可以根据发送对象的不同而采用多种不同的行为方式。
-多态的作用：消除类型之间的耦合关系多态存在的条件
+多态的作用：消除类型之间的耦合关系
 
-
+多态存在的条件
 继承
 重写
-向上转型(upcasting)：父类引用指向子类对象JAVA中的多态
+向上转型(upcasting)：父类引用指向子类对象
 
-
+JAVA中的多态
 如果编译时的类型和运行时的类型不一样，就会出现多态
 12345678910111213141516171819202122232425class">
 <meta property="og:type" content="article">
@@ -102,29 +102,29 @@
 <meta property="og:site_name" content="GdHe's Blog">
 <meta property="og:description" content="多态
 多态的定义：指允许不同类的对象对同一消息做出响应。即同一消息可以根据发送对象的不同而采用多种不同的行为方式。
-多态的作用：消除类型之间的耦合关系多态存在的条件
+多态的作用：消除类型之间的耦合关系
 
-
+多态存在的条件
 继承
 重写
-向上转型(upcasting)：父类引用指向子类对象JAVA中的多态
+向上转型(upcasting)：父类引用指向子类对象
 
-
+JAVA中的多态
 如果编译时的类型和运行时的类型不一样，就会出现多态
 12345678910111213141516171819202122232425class">
-<meta property="og:updated_time" content="2017-01-20T15:40:35.485Z">
+<meta property="og:updated_time" content="2017-01-20T15:48:19.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA：多态浅析">
 <meta name="twitter:description" content="多态
 多态的定义：指允许不同类的对象对同一消息做出响应。即同一消息可以根据发送对象的不同而采用多种不同的行为方式。
-多态的作用：消除类型之间的耦合关系多态存在的条件
+多态的作用：消除类型之间的耦合关系
 
-
+多态存在的条件
 继承
 重写
-向上转型(upcasting)：父类引用指向子类对象JAVA中的多态
+向上转型(upcasting)：父类引用指向子类对象
 
-
+JAVA中的多态
 如果编译时的类型和运行时的类型不一样，就会出现多态
 12345678910111213141516171819202122232425class">
 
@@ -390,16 +390,16 @@
       
 
       
-        <h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h1><ul>
+        <h4 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h4><ul>
 <li><strong>多态的定义</strong>：指允许不同类的对象对同一消息做出响应。即同一消息可以根据发送对象的不同而采用多种不同的行为方式。</li>
-<li><strong>多态的作用</strong>：消除类型之间的耦合关系<h1 id="多态存在的条件"><a href="#多态存在的条件" class="headerlink" title="多态存在的条件"></a>多态存在的条件</h1></li>
+<li><strong>多态的作用</strong>：消除类型之间的耦合关系</li>
 </ul>
-<ol>
+<h4 id="多态存在的条件"><a href="#多态存在的条件" class="headerlink" title="多态存在的条件"></a>多态存在的条件</h4><ol>
 <li>继承</li>
 <li>重写</li>
-<li>向上转型(upcasting)：父类引用指向子类对象<h1 id="JAVA中的多态"><a href="#JAVA中的多态" class="headerlink" title="JAVA中的多态"></a>JAVA中的多态</h1></li>
+<li>向上转型(upcasting)：父类引用指向子类对象</li>
 </ol>
-<ul>
+<h4 id="JAVA中的多态"><a href="#JAVA中的多态" class="headerlink" title="JAVA中的多态"></a>JAVA中的多态</h4><ul>
 <li><p>如果编译时的类型和运行时的类型不一样，就会出现多态</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">class FatherClass&#123;</div><div class="line">    public void teach()&#123;</div><div class="line">        System.out.println(&quot;This is father&apos;s teach method&quot;);</div><div class="line">    &#125;</div><div class="line">    public void test()&#123;</div><div class="line">        System.out.println(&quot;This is the method that will be overwrote by son&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class SonClass extends FatherClass&#123;</div><div class="line">    public void eat()&#123;</div><div class="line">        System.out.println(&quot;This is the son&apos;s eat method&quot;);</div><div class="line">    &#125;</div><div class="line">    public void test()&#123;</div><div class="line">        System.out.println(&quot;This is the son&apos;s test method,which will overwrite the father&apos;s test method&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        //编译时类型是FatherClass，运行时类型是SongClass，发生多态</div><div class="line">        FatherClass man = new SonClass();</div><div class="line">        man.test();//执行的是子类重写的test方法</div><div class="line">        man.eat();//该语句编译不通过，编译时man对象是FatherClass类型，不存在eat()方法</div><div class="line">        //但是引用变量在运行时确实包含eat()方法，可以通过反射来执行该方法</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
@@ -593,7 +593,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#多态"><span class="nav-number">1.</span> <span class="nav-text">多态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多态存在的条件"><span class="nav-number">2.</span> <span class="nav-text">多态存在的条件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA中的多态"><span class="nav-number">3.</span> <span class="nav-text">JAVA中的多态</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#多态"><span class="nav-number">1.</span> <span class="nav-text">多态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多态存在的条件"><span class="nav-number">2.</span> <span class="nav-text">多态存在的条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JAVA中的多态"><span class="nav-number">3.</span> <span class="nav-text">JAVA中的多态</span></a></li></ol></div>
             
 
           </div>
