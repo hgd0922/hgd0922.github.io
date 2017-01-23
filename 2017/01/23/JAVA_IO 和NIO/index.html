@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JAVASE,JAVA," />
+  <meta name="keywords" content="JAVASE," />
 
 
 
@@ -84,49 +84,88 @@
 
 
 
-<meta name="description" content="多态
-多态的定义：指允许不同类的对象对同一消息做出响应。即同一消息可以根据发送对象的不同而采用多种不同的行为方式。
-多态的作用：消除类型之间的耦合关系
+<meta name="description" content="常用IO流
+InputStream/Reader：所有输入流的基类，前者是字节输入流，后者是字符输入流
+OutputStream/Writer：所有输出流的基类，前者是字节输出流，后者是字符输出流
 
-多态存在的条件
-继承
-重写
-向上转型(upcasting)：父类引用指向子类对象
 
-JAVA中的多态
-如果编译时的类型和运行时的类型不一样，就会出现多态
-12345678910111213141516171819202122232425class">
+
+
+分类
+字节输入流
+字节输出流
+字符输入流
+字符输出流 
+
+
+
+
+抽象基类
+InputStream
+OutputStream
+Reader
+Writer
+
+
+访问文件
+FileInputStrea">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA：多态浅析">
-<meta property="og:url" content="http://yoursite.com/2017/01/20/JAVA：多态浅析/index.html">
+<meta property="og:title" content="JAVA：IO和NIO">
+<meta property="og:url" content="http://yoursite.com/2017/01/23/JAVA_IO 和NIO/index.html">
 <meta property="og:site_name" content="GdHe's Blog">
-<meta property="og:description" content="多态
-多态的定义：指允许不同类的对象对同一消息做出响应。即同一消息可以根据发送对象的不同而采用多种不同的行为方式。
-多态的作用：消除类型之间的耦合关系
+<meta property="og:description" content="常用IO流
+InputStream/Reader：所有输入流的基类，前者是字节输入流，后者是字符输入流
+OutputStream/Writer：所有输出流的基类，前者是字节输出流，后者是字符输出流
 
-多态存在的条件
-继承
-重写
-向上转型(upcasting)：父类引用指向子类对象
 
-JAVA中的多态
-如果编译时的类型和运行时的类型不一样，就会出现多态
-12345678910111213141516171819202122232425class">
-<meta property="og:updated_time" content="2017-01-20T15:48:19.891Z">
+
+
+分类
+字节输入流
+字节输出流
+字符输入流
+字符输出流 
+
+
+
+
+抽象基类
+InputStream
+OutputStream
+Reader
+Writer
+
+
+访问文件
+FileInputStrea">
+<meta property="og:updated_time" content="2017-01-23T16:35:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA：多态浅析">
-<meta name="twitter:description" content="多态
-多态的定义：指允许不同类的对象对同一消息做出响应。即同一消息可以根据发送对象的不同而采用多种不同的行为方式。
-多态的作用：消除类型之间的耦合关系
+<meta name="twitter:title" content="JAVA：IO和NIO">
+<meta name="twitter:description" content="常用IO流
+InputStream/Reader：所有输入流的基类，前者是字节输入流，后者是字符输入流
+OutputStream/Writer：所有输出流的基类，前者是字节输出流，后者是字符输出流
 
-多态存在的条件
-继承
-重写
-向上转型(upcasting)：父类引用指向子类对象
 
-JAVA中的多态
-如果编译时的类型和运行时的类型不一样，就会出现多态
-12345678910111213141516171819202122232425class">
+
+
+分类
+字节输入流
+字节输出流
+字符输入流
+字符输出流 
+
+
+
+
+抽象基类
+InputStream
+OutputStream
+Reader
+Writer
+
+
+访问文件
+FileInputStrea">
 
 
 
@@ -154,13 +193,13 @@ JAVA中的多态
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/20/JAVA：多态浅析/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/01/23/JAVA_IO 和NIO/"/>
 
 
 
 
 
-  <title> JAVA：多态浅析 | GdHe's Blog </title>
+  <title> JAVA：IO和NIO | GdHe's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -293,7 +332,7 @@ JAVA中的多态
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/20/JAVA：多态浅析/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/23/JAVA_IO 和NIO/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="gdHe">
@@ -317,7 +356,7 @@ JAVA中的多态
             
             
               
-                JAVA：多态浅析
+                JAVA：IO和NIO
               
             
           </h1>
@@ -332,8 +371,8 @@ JAVA中的多态
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-20T23:41:51+08:00">
-                2017-01-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-23T18:41:51+08:00">
+                2017-01-23
               </time>
             
 
@@ -390,23 +429,108 @@ JAVA中的多态
       
 
       
-        <h4 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h4><ul>
-<li><strong>多态的定义</strong>：指允许不同类的对象对同一消息做出响应。即同一消息可以根据发送对象的不同而采用多种不同的行为方式。</li>
-<li><strong>多态的作用</strong>：消除类型之间的耦合关系</li>
+        <h4 id="常用IO流"><a href="#常用IO流" class="headerlink" title="常用IO流"></a>常用IO流</h4><ul>
+<li>InputStream/Reader：所有输入流的基类，前者是字节输入流，后者是字符输入流</li>
+<li>OutputStream/Writer：所有输出流的基类，前者是字节输出流，后者是字符输出流</li>
 </ul>
-<h4 id="多态存在的条件"><a href="#多态存在的条件" class="headerlink" title="多态存在的条件"></a>多态存在的条件</h4><ol>
-<li>继承</li>
-<li>重写</li>
-<li>向上转型(upcasting)：父类引用指向子类对象</li>
-</ol>
-<h4 id="JAVA中的多态"><a href="#JAVA中的多态" class="headerlink" title="JAVA中的多态"></a>JAVA中的多态</h4><ul>
-<li><p>如果编译时的类型和运行时的类型不一样，就会出现多态</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">class FatherClass&#123;</div><div class="line">    public void teach()&#123;</div><div class="line">        System.out.println(&quot;This is father&apos;s teach method&quot;);</div><div class="line">    &#125;</div><div class="line">    public void test()&#123;</div><div class="line">        System.out.println(&quot;This is the method that will be overwrote by son&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class SonClass extends FatherClass&#123;</div><div class="line">    public void eat()&#123;</div><div class="line">        System.out.println(&quot;This is the son&apos;s eat method&quot;);</div><div class="line">    &#125;</div><div class="line">    public void test()&#123;</div><div class="line">        System.out.println(&quot;This is the son&apos;s test method,which will overwrite the father&apos;s test method&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        //编译时类型是FatherClass，运行时类型是SongClass，发生多态</div><div class="line">        FatherClass man = new SonClass();</div><div class="line">        man.test();//执行的是子类重写的test方法</div><div class="line">        man.eat();//该语句编译不通过，编译时man对象是FatherClass类型，不存在eat()方法</div><div class="line">        //但是引用变量在运行时确实包含eat()方法，可以通过反射来执行该方法</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>多态性主要是体现在实例方法的重写上，对象的实例变量不具备多态性</p>
-</li>
-<li>引用变量在编译时只能够调用其编译时类型具备的方法，但运行时可以运行它运行时类型具备的所有方法</li>
-<li>通过引用变量来访问包含的实例变量时，总是试图访问它编译时类型所定义的成员变量，而不是它运行时类型定义的成员变量</li>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>字节输入流</th>
+<th>字节输出流</th>
+<th>字符输入流</th>
+<th>字符输出流 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>抽象基类</td>
+<td>InputStream</td>
+<td>OutputStream</td>
+<td>Reader</td>
+<td>Writer</td>
+</tr>
+<tr>
+<td>访问文件</td>
+<td><strong>FileInputStream</strong></td>
+<td><strong>FileOutputStream</strong></td>
+<td><strong>FileReader</strong></td>
+<td><strong>FileWriter</strong></td>
+</tr>
+<tr>
+<td>访问数组</td>
+<td><strong>ByteArrayInputStream</strong></td>
+<td><strong>ByteArrayOutputStream</strong></td>
+<td><strong>CharArrayReader</strong></td>
+<td><strong>CharArrayWriter</strong>  </td>
+</tr>
+<tr>
+<td>访问管道</td>
+<td><strong>PipedInputStream</strong></td>
+<td><strong>PipedOutputStream</strong></td>
+<td><strong>PipedReader</strong></td>
+<td><strong>PipedWriter</strong></td>
+</tr>
+<tr>
+<td>访问字符串</td>
+<td></td>
+<td></td>
+<td><strong>StringReader</strong></td>
+<td><strong>StringWriter</strong></td>
+</tr>
+<tr>
+<td>缓冲流</td>
+<td>BufferedInputStream</td>
+<td>BufferedOutputStream</td>
+<td>BufferedReader</td>
+<td>BufferedWriter</td>
+</tr>
+<tr>
+<td>转换流</td>
+<td></td>
+<td></td>
+<td>InputStreamReader</td>
+<td>OutputStreamWriter</td>
+</tr>
+<tr>
+<td>对象流</td>
+<td>ObjectInputStream</td>
+<td>ObjectOutputStream </td>
+</tr>
+<tr>
+<td>抽象基类</td>
+<td>FilterInputStream</td>
+<td>FilterOutputStream</td>
+<td>FilterReader</td>
+<td>FilterWriter</td>
+</tr>
+<tr>
+<td>打印流</td>
+<td></td>
+<td>PrintStream</td>
+<td></td>
+<td>PrintWriter</td>
+</tr>
+<tr>
+<td>推回输入流</td>
+<td>PushbackInputStream</td>
+<td></td>
+<td>PushbackReader</td>
+<td></td>
+</tr>
+<tr>
+<td>特殊流</td>
+<td>DataInputStream</td>
+<td>DateOutputStream</td>
+</tr>
+</tbody>
+</table>
+<p>(粗体字标出的类代表节点流，必须与指定的物理节点关联)</p>
+<h4 id="IO读写文件实例"><a href="#IO读写文件实例" class="headerlink" title="IO读写文件实例"></a>IO读写文件实例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">public class FileInputStreamTest &#123;</div><div class="line">	public static void main(String[] args) throws Exception &#123;</div><div class="line">		//创建字节输入流</div><div class="line">		FileInputStream fis = new FileInputStream(&quot;mysql.ini&quot;);</div><div class="line">		//创建字节输出流</div><div class="line">		FileOutputStream fos = new FileOutputStream(&quot;test.txt&quot;);</div><div class="line">		//创建缓冲数组</div><div class="line">		byte[] bbuf = new byte[1024];</div><div class="line">		//保存实际读取的字节数</div><div class="line">		int hasRead = 0;</div><div class="line">		while ((hasRead = fis.read(bbuf)) &gt; 0) &#123;</div><div class="line">			System.out.println(new String(bbuf, 0, hasRead));</div><div class="line">			fos.write(bbuf, 0, hasRead);</div><div class="line">		&#125;</div><div class="line">		fis.close();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="NIO读写文件实例"><a href="#NIO读写文件实例" class="headerlink" title="NIO读写文件实例"></a>NIO读写文件实例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">public class FileChannelTest &#123;</div><div class="line">	public static void main(String[] args) throws Exception &#123;</div><div class="line">		File f = new File(&quot;mysql.ini&quot;);</div><div class="line">		try (</div><div class="line">				//以文件输入流创建FileChannel</div><div class="line">				FileChannel inChannel = new FileInputStream(f).getChannel();</div><div class="line">				//以文件输出流创建FileChannel</div><div class="line">				FileChannel outChannel = new FileOutputStream(&quot;test3.txt&quot;).getChannel()) &#123;</div><div class="line">			//将FileChannel中的数据全部映射成ByteBuffer</div><div class="line">			MappedByteBuffer buffer = inChannel.map(FileChannel.MapMode.READ_ONLY,0,f.length());</div><div class="line">			Charset charset = Charset.forName(&quot;GBK&quot;);</div><div class="line">			//将buffer里面的数据全部输出</div><div class="line">			outChannel.write(buffer);</div><div class="line">			buffer.clear();</div><div class="line">			CharsetDecoder decoder = charset.newDecoder();</div><div class="line">			CharBuffer charBuffer = decoder.decode(buffer);</div><div class="line">			System.out.println(charBuffer);</div><div class="line">		&#125;catch(IOException e)&#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>文件锁:在NIO中，FileChannel的lock()/trylock()方法可以获得文件锁FileLock对象，从而锁定文件；使用release()方法释放文件锁</li>
 </ul>
 
       
@@ -433,8 +557,6 @@ JAVA中的多态
           
             <a href="/tags/JAVASE/" rel="tag"># JAVASE</a>
           
-            <a href="/tags/JAVA/" rel="tag"># JAVA</a>
-          
         </div>
       
 
@@ -442,8 +564,8 @@ JAVA中的多态
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/20/JAVA：常用集合/" rel="next" title="JAVA：常用集合">
-                <i class="fa fa-chevron-left"></i> JAVA：常用集合
+              <a href="/2017/01/23/JAVA注解（Annotation）/" rel="next" title="JAVA：注解（Annotation）">
+                <i class="fa fa-chevron-left"></i> JAVA：注解（Annotation）
               </a>
             
           </div>
@@ -452,8 +574,8 @@ JAVA中的多态
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/22/MySQL的JDBC开发/" rel="prev" title="MySQL：JDBC开发">
-                MySQL：JDBC开发 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/23/JAVA_对象序列化/" rel="prev" title="JAVA：对象序列化">
+                JAVA：对象序列化 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -597,7 +719,7 @@ JAVA中的多态
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#多态"><span class="nav-number">1.</span> <span class="nav-text">多态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多态存在的条件"><span class="nav-number">2.</span> <span class="nav-text">多态存在的条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JAVA中的多态"><span class="nav-number">3.</span> <span class="nav-text">JAVA中的多态</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用IO流"><span class="nav-number">1.</span> <span class="nav-text">常用IO流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IO读写文件实例"><span class="nav-number">2.</span> <span class="nav-text">IO读写文件实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NIO读写文件实例"><span class="nav-number">3.</span> <span class="nav-text">NIO读写文件实例</span></a></li></ol></div>
             
 
           </div>

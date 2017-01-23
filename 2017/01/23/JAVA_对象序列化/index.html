@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JAVASE,JAVA," />
+  <meta name="keywords" content="JAVASE," />
 
 
 
@@ -84,49 +84,34 @@
 
 
 
-<meta name="description" content="多态
-多态的定义：指允许不同类的对象对同一消息做出响应。即同一消息可以根据发送对象的不同而采用多种不同的行为方式。
-多态的作用：消除类型之间的耦合关系
+<meta name="description" content="序列化的定义
+序列化机制允许将Java对象转换成字节序列，存于磁盘中，或者用于网络传输，以便以后恢复成原来的Java对象
+序列化：将一个Java对象写入IO流中
+反序列化：从IO流中恢复出Java对象
+序列化需要实现两个接口之一：Serializable，Externalizable
 
-多态存在的条件
-继承
-重写
-向上转型(upcasting)：父类引用指向子类对象
-
-JAVA中的多态
-如果编译时的类型和运行时的类型不一样，就会出现多态
-12345678910111213141516171819202122232425class">
+序列化实例123456789101112131415161718192021public class Perso">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA：多态浅析">
-<meta property="og:url" content="http://yoursite.com/2017/01/20/JAVA：多态浅析/index.html">
+<meta property="og:title" content="JAVA：对象序列化">
+<meta property="og:url" content="http://yoursite.com/2017/01/23/JAVA_对象序列化/index.html">
 <meta property="og:site_name" content="GdHe's Blog">
-<meta property="og:description" content="多态
-多态的定义：指允许不同类的对象对同一消息做出响应。即同一消息可以根据发送对象的不同而采用多种不同的行为方式。
-多态的作用：消除类型之间的耦合关系
+<meta property="og:description" content="序列化的定义
+序列化机制允许将Java对象转换成字节序列，存于磁盘中，或者用于网络传输，以便以后恢复成原来的Java对象
+序列化：将一个Java对象写入IO流中
+反序列化：从IO流中恢复出Java对象
+序列化需要实现两个接口之一：Serializable，Externalizable
 
-多态存在的条件
-继承
-重写
-向上转型(upcasting)：父类引用指向子类对象
-
-JAVA中的多态
-如果编译时的类型和运行时的类型不一样，就会出现多态
-12345678910111213141516171819202122232425class">
-<meta property="og:updated_time" content="2017-01-20T15:48:19.891Z">
+序列化实例123456789101112131415161718192021public class Perso">
+<meta property="og:updated_time" content="2017-01-23T14:24:50.657Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA：多态浅析">
-<meta name="twitter:description" content="多态
-多态的定义：指允许不同类的对象对同一消息做出响应。即同一消息可以根据发送对象的不同而采用多种不同的行为方式。
-多态的作用：消除类型之间的耦合关系
+<meta name="twitter:title" content="JAVA：对象序列化">
+<meta name="twitter:description" content="序列化的定义
+序列化机制允许将Java对象转换成字节序列，存于磁盘中，或者用于网络传输，以便以后恢复成原来的Java对象
+序列化：将一个Java对象写入IO流中
+反序列化：从IO流中恢复出Java对象
+序列化需要实现两个接口之一：Serializable，Externalizable
 
-多态存在的条件
-继承
-重写
-向上转型(upcasting)：父类引用指向子类对象
-
-JAVA中的多态
-如果编译时的类型和运行时的类型不一样，就会出现多态
-12345678910111213141516171819202122232425class">
+序列化实例123456789101112131415161718192021public class Perso">
 
 
 
@@ -154,13 +139,13 @@ JAVA中的多态
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/20/JAVA：多态浅析/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/01/23/JAVA_对象序列化/"/>
 
 
 
 
 
-  <title> JAVA：多态浅析 | GdHe's Blog </title>
+  <title> JAVA：对象序列化 | GdHe's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -293,7 +278,7 @@ JAVA中的多态
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/20/JAVA：多态浅析/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/23/JAVA_对象序列化/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="gdHe">
@@ -317,7 +302,7 @@ JAVA中的多态
             
             
               
-                JAVA：多态浅析
+                JAVA：对象序列化
               
             
           </h1>
@@ -332,8 +317,8 @@ JAVA中的多态
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-20T23:41:51+08:00">
-                2017-01-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-23T18:41:51+08:00">
+                2017-01-23
               </time>
             
 
@@ -390,24 +375,71 @@ JAVA中的多态
       
 
       
-        <h4 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h4><ul>
-<li><strong>多态的定义</strong>：指允许不同类的对象对同一消息做出响应。即同一消息可以根据发送对象的不同而采用多种不同的行为方式。</li>
-<li><strong>多态的作用</strong>：消除类型之间的耦合关系</li>
+        <h4 id="序列化的定义"><a href="#序列化的定义" class="headerlink" title="序列化的定义"></a>序列化的定义</h4><ul>
+<li>序列化机制允许将Java对象转换成字节序列，存于磁盘中，或者用于网络传输，以便以后恢复成原来的Java对象</li>
+<li>序列化：将一个Java对象写入IO流中</li>
+<li>反序列化：从IO流中恢复出Java对象</li>
+<li>序列化需要实现两个接口之一：Serializable，Externalizable</li>
 </ul>
-<h4 id="多态存在的条件"><a href="#多态存在的条件" class="headerlink" title="多态存在的条件"></a>多态存在的条件</h4><ol>
-<li>继承</li>
-<li>重写</li>
-<li>向上转型(upcasting)：父类引用指向子类对象</li>
+<h4 id="序列化实例"><a href="#序列化实例" class="headerlink" title="序列化实例"></a>序列化实例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">public class Person implements java.io.Serializable&#123;</div><div class="line">    private String name;</div><div class="line">    private int age;</div><div class="line"></div><div class="line">    public Person(String name,Int age)&#123;</div><div class="line">        this.name = name;</div><div class="line">        this.age = age;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class WriteObject&#123;</div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(&quot;out.txt&quot;)))&#123;</div><div class="line">            Person per = new Person(&quot;Joe&quot;,20);</div><div class="line">            //将要序列化的Person实例写入输出流</div><div class="line">            oos.writeObject(per);</div><div class="line">        &#125;catch(IOException e)&#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="序列化需要注意的地方"><a href="#序列化需要注意的地方" class="headerlink" title="序列化需要注意的地方"></a>序列化需要注意的地方</h4><ul>
+<li>对象的类名、实例变量会被序列化；而方法、类变量、transient实例变量（瞬态变量）是不会被序列化的</li>
+<li>反序列化读取的仅仅是对象的数据，因此反序列化时必须要有反序列化对象的class文件</li>
+<li>当一个可序列化类有多个父类时，这些父类要么有无参构造，要么也是可以序列化的，否则抛出InvalidClassException</li>
+<li>所有序列化保存到磁盘的对象都有一个序列化编号</li>
+<li>如果一个对象已经序列化过，程序将只是输出一个序列化编号，而不是再次序列化该对象</li>
+</ul>
+<h4 id="自定义序列化"><a href="#自定义序列化" class="headerlink" title="自定义序列化"></a>自定义序列化</h4><ul>
+<li>被transient修饰的实例变量将不会被序列化</li>
+<li><p>实现Serializable接口的序列化类，可以重写以下两个方法实现自定义序列化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">private void writeObject(java.io.ObjectOutputStream out) throws IOException</div><div class="line">private void readObject(java.io.ObjectInputStream in)throws IOException,ClassNotFoundException</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果需要序列化某个对象时替换改对象，提供如下方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ANY-ACCESS-MODIFIER Object writeReplace() throws ObjectStreamException</div></pre></td></tr></table></figure>
+</li>
+<li><p>在序列化对象时，先执行writeReplace() 方法，返回对象后，继续执行返回对象的writeReplace方法，直至该方法不返回另外一个对象为止，最后调用writeObject()方法保存该对象</p>
+</li>
+<li><p>如果序列化类实现Externalize接口，必须实现下面两个方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">void readExternal(ObjectInput in)</div><div class="line">void writeExternal(ObjectOutput out)</div></pre></td></tr></table></figure>
+</li>
+<li><p>当使用Externalizable机制反序列化对象时，会先使用public的无参构造器创建实例，然后才执行readExternal()方法进行反序列化，故实现Externalizable的序列化类必须有public的无参构造器</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>实现Serializable接口</th>
+<th>实现Externalizable接口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>系统自动存储必要的信息（也可以手动改写）</td>
+<td>程序员决定存储哪些信息</td>
+</tr>
+<tr>
+<td>Java内建支持，易于实现，只需要实现接口，不需要代码支持</td>
+<td>仅仅提供两个空方法，实现接口必须实现该方法</td>
+</tr>
+<tr>
+<td>性能略差</td>
+<td>性能略好</td>
+</tr>
+</tbody>
+</table>
+<h4 id="序列化版本号"><a href="#序列化版本号" class="headerlink" title="序列化版本号"></a>序列化版本号</h4><ul>
+<li><p>为序列化类显式提供版本号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">private static final long serialVersionUID = 222L ;</div></pre></td></tr></table></figure>
+</li>
+<li><p>版本号不同将会导致序列化失败</p>
+</li>
+<li>下面几种情况，同版本号的类反序列化不受影响：</li>
+</ul>
+<ol>
+<li>修改类时只修改了方法</li>
+<li>修改类时只修改了类变量和瞬态变量</li>
+<li>对象流中含有更多或更少于新类中的实例变量，多时忽略，少时赋0和null·</li>
 </ol>
-<h4 id="JAVA中的多态"><a href="#JAVA中的多态" class="headerlink" title="JAVA中的多态"></a>JAVA中的多态</h4><ul>
-<li><p>如果编译时的类型和运行时的类型不一样，就会出现多态</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">class FatherClass&#123;</div><div class="line">    public void teach()&#123;</div><div class="line">        System.out.println(&quot;This is father&apos;s teach method&quot;);</div><div class="line">    &#125;</div><div class="line">    public void test()&#123;</div><div class="line">        System.out.println(&quot;This is the method that will be overwrote by son&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class SonClass extends FatherClass&#123;</div><div class="line">    public void eat()&#123;</div><div class="line">        System.out.println(&quot;This is the son&apos;s eat method&quot;);</div><div class="line">    &#125;</div><div class="line">    public void test()&#123;</div><div class="line">        System.out.println(&quot;This is the son&apos;s test method,which will overwrite the father&apos;s test method&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        //编译时类型是FatherClass，运行时类型是SongClass，发生多态</div><div class="line">        FatherClass man = new SonClass();</div><div class="line">        man.test();//执行的是子类重写的test方法</div><div class="line">        man.eat();//该语句编译不通过，编译时man对象是FatherClass类型，不存在eat()方法</div><div class="line">        //但是引用变量在运行时确实包含eat()方法，可以通过反射来执行该方法</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>多态性主要是体现在实例方法的重写上，对象的实例变量不具备多态性</p>
-</li>
-<li>引用变量在编译时只能够调用其编译时类型具备的方法，但运行时可以运行它运行时类型具备的所有方法</li>
-<li>通过引用变量来访问包含的实例变量时，总是试图访问它编译时类型所定义的成员变量，而不是它运行时类型定义的成员变量</li>
-</ul>
 
       
     </div>
@@ -433,8 +465,6 @@ JAVA中的多态
           
             <a href="/tags/JAVASE/" rel="tag"># JAVASE</a>
           
-            <a href="/tags/JAVA/" rel="tag"># JAVA</a>
-          
         </div>
       
 
@@ -442,8 +472,8 @@ JAVA中的多态
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/20/JAVA：常用集合/" rel="next" title="JAVA：常用集合">
-                <i class="fa fa-chevron-left"></i> JAVA：常用集合
+              <a href="/2017/01/23/JAVA_IO 和NIO/" rel="next" title="JAVA：IO和NIO">
+                <i class="fa fa-chevron-left"></i> JAVA：IO和NIO
               </a>
             
           </div>
@@ -451,10 +481,6 @@ JAVA中的多态
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/22/MySQL的JDBC开发/" rel="prev" title="MySQL：JDBC开发">
-                MySQL：JDBC开发 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -597,7 +623,7 @@ JAVA中的多态
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#多态"><span class="nav-number">1.</span> <span class="nav-text">多态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多态存在的条件"><span class="nav-number">2.</span> <span class="nav-text">多态存在的条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JAVA中的多态"><span class="nav-number">3.</span> <span class="nav-text">JAVA中的多态</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#序列化的定义"><span class="nav-number">1.</span> <span class="nav-text">序列化的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#序列化实例"><span class="nav-number">2.</span> <span class="nav-text">序列化实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#序列化需要注意的地方"><span class="nav-number">3.</span> <span class="nav-text">序列化需要注意的地方</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义序列化"><span class="nav-number">4.</span> <span class="nav-text">自定义序列化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#序列化版本号"><span class="nav-number">5.</span> <span class="nav-text">序列化版本号</span></a></li></ol></div>
             
 
           </div>
