@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JAVASE,MySQL," />
+  <meta name="keywords" content="JAVASE," />
 
 
 
@@ -84,16 +84,34 @@
 
 
 
-<meta name="description" content="JDBC最基础编程12345678910111213141516171819public class Test &amp;#123;	public static void main(String[] args) throws Exception&amp;#123;		//加载驱动		Class.forName(&amp;quot;com.mysql.jdbc.Driver&amp;quot;);		try(				//使用Dri">
+<meta name="description" content="注解的定义
+注解其实就是代码里的特殊标记，这些标记可以在编译、类加载、运行时被读取，并执行相应的处理。通过注解，开发人员可以在不改变原有逻辑的情况下，在源文件中嵌入一些补充信息。
+Annotation能够用来为程序元素（类、方法、成员变量等）设置元数据
+访问和处理Annotation的工具统称APT（Annotation Processing Tool）
+
+5类基本的Annotation
+@Ove">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL：JDBC开发">
-<meta property="og:url" content="http://yoursite.com/2017/01/22/MySQL的JDBC开发/index.html">
+<meta property="og:title" content="JAVA：注解（Annotation）">
+<meta property="og:url" content="http://yoursite.com/2017/01/23/JAVA注解（Annotation）/index.html">
 <meta property="og:site_name" content="GdHe's Blog">
-<meta property="og:description" content="JDBC最基础编程12345678910111213141516171819public class Test &amp;#123;	public static void main(String[] args) throws Exception&amp;#123;		//加载驱动		Class.forName(&amp;quot;com.mysql.jdbc.Driver&amp;quot;);		try(				//使用Dri">
-<meta property="og:updated_time" content="2017-01-22T15:23:19.000Z">
+<meta property="og:description" content="注解的定义
+注解其实就是代码里的特殊标记，这些标记可以在编译、类加载、运行时被读取，并执行相应的处理。通过注解，开发人员可以在不改变原有逻辑的情况下，在源文件中嵌入一些补充信息。
+Annotation能够用来为程序元素（类、方法、成员变量等）设置元数据
+访问和处理Annotation的工具统称APT（Annotation Processing Tool）
+
+5类基本的Annotation
+@Ove">
+<meta property="og:updated_time" content="2017-01-23T06:04:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL：JDBC开发">
-<meta name="twitter:description" content="JDBC最基础编程12345678910111213141516171819public class Test &amp;#123;	public static void main(String[] args) throws Exception&amp;#123;		//加载驱动		Class.forName(&amp;quot;com.mysql.jdbc.Driver&amp;quot;);		try(				//使用Dri">
+<meta name="twitter:title" content="JAVA：注解（Annotation）">
+<meta name="twitter:description" content="注解的定义
+注解其实就是代码里的特殊标记，这些标记可以在编译、类加载、运行时被读取，并执行相应的处理。通过注解，开发人员可以在不改变原有逻辑的情况下，在源文件中嵌入一些补充信息。
+Annotation能够用来为程序元素（类、方法、成员变量等）设置元数据
+访问和处理Annotation的工具统称APT（Annotation Processing Tool）
+
+5类基本的Annotation
+@Ove">
 
 
 
@@ -121,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/22/MySQL的JDBC开发/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/01/23/JAVA注解（Annotation）/"/>
 
 
 
 
 
-  <title> MySQL：JDBC开发 | GdHe's Blog </title>
+  <title> JAVA：注解（Annotation） | GdHe's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -260,7 +278,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/22/MySQL的JDBC开发/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/23/JAVA注解（Annotation）/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="gdHe">
@@ -284,7 +302,7 @@
             
             
               
-                MySQL：JDBC开发
+                JAVA：注解（Annotation）
               
             
           </h1>
@@ -299,8 +317,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-22T22:41:51+08:00">
-                2017-01-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-23T12:41:51+08:00">
+                2017-01-23
               </time>
             
 
@@ -322,8 +340,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
+                  <a href="/categories/JAVASE/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVASE</span>
                   </a>
                 </span>
 
@@ -357,35 +375,28 @@
       
 
       
-        <h4 id="JDBC最基础编程"><a href="#JDBC最基础编程" class="headerlink" title="JDBC最基础编程"></a>JDBC最基础编程</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public class Test &#123;</div><div class="line">	public static void main(String[] args) throws Exception&#123;</div><div class="line">		//加载驱动</div><div class="line">		Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</div><div class="line">		try(</div><div class="line">				//使用DriverManager来获取数据库连接</div><div class="line">				Connection conn = DriverManager.getConnection(&quot;jdbc:mysql://127.0.0.1:3306/spring6&quot;,&quot;root&quot;,&quot;123456&quot;);</div><div class="line">				//使用Connection连接来创建一个Statement对象</div><div class="line">				Statement stat = conn.createStatement();</div><div class="line">				//执行sql语句</div><div class="line">				ResultSet rs = stat.executeQuery(&quot;select * from ssh_department&quot;)</div><div class="line">				)</div><div class="line">		&#123;</div><div class="line">			while(rs.next())&#123;</div><div class="line">				System.out.println(rs.getString(1)+&quot;\t&quot;+rs.getString(2));</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="使用配置文件mysql-ini"><a href="#使用配置文件mysql-ini" class="headerlink" title="使用配置文件mysql.ini"></a>使用配置文件mysql.ini</h4><ul>
-<li><p>配置文件内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">driver:com.mysql.jdbc.Driver</div><div class="line">url:jdbc:mysql://127.0.0.1:3306/spring6</div><div class="line">username:root</div><div class="line">password:123456</div></pre></td></tr></table></figure>
-</li>
-<li><p>编程实例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">public class Test &#123;</div><div class="line">	private String driver;</div><div class="line">	private String url;</div><div class="line">	private String username;</div><div class="line">	private String password;</div><div class="line"></div><div class="line">	public void initParam(String paramFile) throws Exception &#123;</div><div class="line">		// 使用Properties类来加载类属性文件</div><div class="line">		Properties props = new Properties();</div><div class="line">		props.load(new FileInputStream(paramFile));</div><div class="line">		driver = props.getProperty(&quot;driver&quot;);</div><div class="line">		url = props.getProperty(&quot;url&quot;);</div><div class="line">		username = props.getProperty(&quot;username&quot;);</div><div class="line">		password = props.getProperty(&quot;password&quot;);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void creatTable(String sql) throws Exception &#123;</div><div class="line">		//加载驱动</div><div class="line">		Class.forName(driver);</div><div class="line">		try (</div><div class="line">				//获取数据库连接</div><div class="line">				Connection conn = DriverManager.getConnection(url, username, password);</div><div class="line">				//创建Statement对象</div><div class="line">				Statement stat = conn.createStatement()) &#123;</div><div class="line">			    stat.executeUpdate(sql);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public static void main(String[] args) throws Exception &#123;</div><div class="line">		Test test = new Test();</div><div class="line">		test.initParam(&quot;mysql.ini&quot;);</div><div class="line">		test.creatTable(&quot;create table student(&quot; + &quot;id int auto_increment primary key,&quot; + &quot;name varchar(50));&quot;);</div><div class="line">		System.out.println(&quot;建表成功&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
+        <h4 id="注解的定义"><a href="#注解的定义" class="headerlink" title="注解的定义"></a>注解的定义</h4><ul>
+<li>注解其实就是代码里的特殊标记，这些标记可以在编译、类加载、运行时被读取，并执行相应的处理。通过注解，开发人员可以在不改变原有逻辑的情况下，在源文件中嵌入一些补充信息。</li>
+<li>Annotation能够用来为程序元素（类、方法、成员变量等）设置元数据</li>
+<li>访问和处理Annotation的工具统称APT（Annotation Processing Tool）</li>
 </ul>
-<h4 id="JDBC的事务支持"><a href="#JDBC的事务支持" class="headerlink" title="JDBC的事务支持"></a>JDBC的事务支持</h4><ul>
-<li><p>开启事务（关闭自动提交）</p>
-<pre><code>conn.setAutoCommit(false);
-</code></pre></li>
-<li><p>执行多条DML语句</p>
-<pre><code>stmt.executeUpdate(...);
-stmt.executeUpdate(...);
-</code></pre></li>
-<li><p>提交事务</p>
-<pre><code>conn.commit();
-</code></pre></li>
-<li><p>回滚事务</p>
-<pre><code>conn.rollback();
-</code></pre></li>
+<h4 id="5类基本的Annotation"><a href="#5类基本的Annotation" class="headerlink" title="5类基本的Annotation"></a>5类基本的Annotation</h4><ul>
+<li>@Override：用来指定方法的覆载</li>
+<li>@Deprecate：用于标识某个程序元素（类、方法等）已过时</li>
+<li>@SuppressWarnings：抑制编译器警告</li>
+<li>@SafeVarargs：抑制堆污染警告</li>
+<li>@FunctionalInterface：标识函数式接口</li>
 </ul>
-<h4 id="C3P0连接池配置"><a href="#C3P0连接池配置" class="headerlink" title="C3P0连接池配置"></a>C3P0连接池配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//创建连接池实例</div><div class="line">ComboPooledDataSource ds = new ComboPooledDataSource();</div><div class="line">//设置连接池实例需要的驱动</div><div class="line">ds.setDriverClass(&quot;com.mysql.jdbc.Driver&quot;);</div><div class="line">//设置数据库url</div><div class="line">ds.setJdbcUrl(&quot;jdbc:mysql://localhost:3306/spring6&quot;);</div><div class="line">//设置用户名</div><div class="line">ds.setUser(&quot;root&quot;);</div><div class="line">//设置密码</div><div class="line">ds.setPassword(&quot;123456&quot;);</div><div class="line">//设置连接池最大连接数</div><div class="line">ds.setMaxPoolSize(40);</div><div class="line">//设置连接池最小连接数</div><div class="line">ds.setMinPoolSize(2);</div><div class="line">//设置连接池的初始连接数</div><div class="line">ds.setInitialPoolSize(10);</div><div class="line">//设置连接池缓存的Statement的最大数量</div><div class="line">ds.setMaxStatements(180);</div></pre></td></tr></table></figure>
-<ul>
-<li><p>获得数据库连接</p>
-<pre><code>Connection conn = ds.getConnection();
-</code></pre></li>
+<h4 id="元Annotation"><a href="#元Annotation" class="headerlink" title="元Annotation"></a>元Annotation</h4><ul>
+<li>用于修饰其他的Annotation定义</li>
+<li>@Retention：指定被修饰的Annnotation可以保留多长时间</li>
+<li>@Target：指定被修饰的Annotation能用于修饰哪些程序单元</li>
+<li>@Documented：被修饰的Annotation类将被javadoc工具提取成文档</li>
+<li>@Inherited：指定被修饰的Annotation将具有继承性（添加具有继承性Annotation的类的子类将自动被该Annotation修饰）</li>
+</ul>
+<h4 id="自定义Annotation"><a href="#自定义Annotation" class="headerlink" title="自定义Annotation"></a>自定义Annotation</h4><ul>
+<li>定义新的Annotation类型使用@interface关键字</li>
+<li>示例<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@Retention(RetentionPolicy.RUNTIME)</div><div class="line">@Target(ElementType.METHOD)</div><div class="line">public @interface Test&#123;</div><div class="line">    String name() default &quot;Joe&quot;;</div><div class="line">    int age() default 20;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -412,8 +423,6 @@ stmt.executeUpdate(...);
           
             <a href="/tags/JAVASE/" rel="tag"># JAVASE</a>
           
-            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
-          
         </div>
       
 
@@ -421,8 +430,8 @@ stmt.executeUpdate(...);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/20/JAVA：多态浅析/" rel="next" title="JAVA：多态浅析">
-                <i class="fa fa-chevron-left"></i> JAVA：多态浅析
+              <a href="/2017/01/22/MySQL的JDBC开发/" rel="next" title="MySQL：JDBC开发">
+                <i class="fa fa-chevron-left"></i> MySQL：JDBC开发
               </a>
             
           </div>
@@ -430,10 +439,6 @@ stmt.executeUpdate(...);
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/23/JAVA注解（Annotation）/" rel="prev" title="JAVA：注解（Annotation）">
-                JAVA：注解（Annotation） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -576,7 +581,7 @@ stmt.executeUpdate(...);
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#JDBC最基础编程"><span class="nav-number">1.</span> <span class="nav-text">JDBC最基础编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用配置文件mysql-ini"><span class="nav-number">2.</span> <span class="nav-text">使用配置文件mysql.ini</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JDBC的事务支持"><span class="nav-number">3.</span> <span class="nav-text">JDBC的事务支持</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C3P0连接池配置"><span class="nav-number">4.</span> <span class="nav-text">C3P0连接池配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#注解的定义"><span class="nav-number">1.</span> <span class="nav-text">注解的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5类基本的Annotation"><span class="nav-number">2.</span> <span class="nav-text">5类基本的Annotation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元Annotation"><span class="nav-number">3.</span> <span class="nav-text">元Annotation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义Annotation"><span class="nav-number">4.</span> <span class="nav-text">自定义Annotation</span></a></li></ol></div>
             
 
           </div>
