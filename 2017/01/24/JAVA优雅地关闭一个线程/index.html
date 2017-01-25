@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法,数据结构," />
+  <meta name="keywords" content="JAVA,JAVASE," />
 
 
 
@@ -84,49 +84,31 @@
 
 
 
-<meta name="description" content="内排序和外排序
-内排序：是指在排序过程中，待排序的所有记录都被放置在内存中
-外排序：由于记录数量过多不能够全部放置在内存中，排序需要在内外存之间多次交换顺序
-排序算法的性能影响因素：
-时间性能：要尽可能减少比较次数和移动次数
-辅助空间：执行算法需要的其他存储空间
-算法复杂性： 算法本身的复杂度
+<meta name="description" content="使用stop()方法关闭线程（已弃用）
+直接调用stop()方法关闭一个线程，可能会在线程执行的任意位置将线程给关闭，而且关闭线程时，该线程已经执行的操作和还未来得及执行的操作都是不可预测的，可能会导致数据的不完整，故这样关闭一个线程是不安全的
 
-
-
-排序的稳定性
-相同值的元素，经过排序之后，多个相同值对应序列的排序没有发生改变，该排序方法就是稳定">
+使用volatile标志位来关闭一个线程
+一个定义为volatile的变量是说这变量可能会被意想不到地改变，这样，编译器就不会去假设这个变量的值了。精确">
 <meta property="og:type" content="article">
-<meta property="og:title" content="排序算法">
-<meta property="og:url" content="http://yoursite.com/2017/01/16/sort-algorithm/index.html">
+<meta property="og:title" content="JAVA：如何优雅地关闭一个线程">
+<meta property="og:url" content="http://yoursite.com/2017/01/24/JAVA优雅地关闭一个线程/index.html">
 <meta property="og:site_name" content="GdHe's Blog">
-<meta property="og:description" content="内排序和外排序
-内排序：是指在排序过程中，待排序的所有记录都被放置在内存中
-外排序：由于记录数量过多不能够全部放置在内存中，排序需要在内外存之间多次交换顺序
-排序算法的性能影响因素：
-时间性能：要尽可能减少比较次数和移动次数
-辅助空间：执行算法需要的其他存储空间
-算法复杂性： 算法本身的复杂度
+<meta property="og:description" content="使用stop()方法关闭线程（已弃用）
+直接调用stop()方法关闭一个线程，可能会在线程执行的任意位置将线程给关闭，而且关闭线程时，该线程已经执行的操作和还未来得及执行的操作都是不可预测的，可能会导致数据的不完整，故这样关闭一个线程是不安全的
 
-
-
-排序的稳定性
-相同值的元素，经过排序之后，多个相同值对应序列的排序没有发生改变，该排序方法就是稳定">
-<meta property="og:updated_time" content="2017-01-15T18:43:39.633Z">
+使用volatile标志位来关闭一个线程
+一个定义为volatile的变量是说这变量可能会被意想不到地改变，这样，编译器就不会去假设这个变量的值了。精确">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3372306-b90c41d38a622228.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3372306-16d0c6d0192b0552.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-01-24T15:05:38.586Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="排序算法">
-<meta name="twitter:description" content="内排序和外排序
-内排序：是指在排序过程中，待排序的所有记录都被放置在内存中
-外排序：由于记录数量过多不能够全部放置在内存中，排序需要在内外存之间多次交换顺序
-排序算法的性能影响因素：
-时间性能：要尽可能减少比较次数和移动次数
-辅助空间：执行算法需要的其他存储空间
-算法复杂性： 算法本身的复杂度
+<meta name="twitter:title" content="JAVA：如何优雅地关闭一个线程">
+<meta name="twitter:description" content="使用stop()方法关闭线程（已弃用）
+直接调用stop()方法关闭一个线程，可能会在线程执行的任意位置将线程给关闭，而且关闭线程时，该线程已经执行的操作和还未来得及执行的操作都是不可预测的，可能会导致数据的不完整，故这样关闭一个线程是不安全的
 
-
-
-排序的稳定性
-相同值的元素，经过排序之后，多个相同值对应序列的排序没有发生改变，该排序方法就是稳定">
+使用volatile标志位来关闭一个线程
+一个定义为volatile的变量是说这变量可能会被意想不到地改变，这样，编译器就不会去假设这个变量的值了。精确">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3372306-b90c41d38a622228.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -154,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/16/sort-algorithm/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/01/24/JAVA优雅地关闭一个线程/"/>
 
 
 
 
 
-  <title> 排序算法 | GdHe's Blog </title>
+  <title> JAVA：如何优雅地关闭一个线程 | GdHe's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -293,7 +275,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/16/sort-algorithm/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/24/JAVA优雅地关闭一个线程/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="gdHe">
@@ -317,7 +299,7 @@
             
             
               
-                排序算法
+                JAVA：如何优雅地关闭一个线程
               
             
           </h1>
@@ -332,8 +314,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-16T02:41:51+08:00">
-                2017-01-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-24T23:00:51+08:00">
+                2017-01-24
               </time>
             
 
@@ -355,8 +337,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
+                  <a href="/categories/JAVASE/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVASE</span>
                   </a>
                 </span>
 
@@ -390,36 +372,17 @@
       
 
       
-        <h4 id="内排序和外排序"><a href="#内排序和外排序" class="headerlink" title="内排序和外排序"></a>内排序和外排序</h4><ul>
-<li><strong>内排序</strong>：是指在排序过程中，待排序的所有记录都被放置在内存中</li>
-<li><strong>外排序</strong>：由于记录数量过多不能够全部放置在内存中，排序需要在内外存之间多次交换顺序</li>
-<li><strong>排序算法的性能影响因素</strong>：<ol>
-<li>时间性能：要尽可能减少比较次数和移动次数</li>
-<li>辅助空间：执行算法需要的其他存储空间</li>
-<li>算法复杂性： 算法本身的复杂度</li>
-</ol>
+        <h4 id="使用stop-方法关闭线程（已弃用）"><a href="#使用stop-方法关闭线程（已弃用）" class="headerlink" title="使用stop()方法关闭线程（已弃用）"></a>使用stop()方法关闭线程（已弃用）</h4><ul>
+<li>直接调用stop()方法关闭一个线程，可能会在线程执行的任意位置将线程给关闭，而且关闭线程时，该线程已经执行的操作和还未来得及执行的操作都是不可预测的，可能会导致数据的不完整，故这样关闭一个线程是不安全的</li>
+</ul>
+<h4 id="使用volatile标志位来关闭一个线程"><a href="#使用volatile标志位来关闭一个线程" class="headerlink" title="使用volatile标志位来关闭一个线程"></a>使用volatile标志位来关闭一个线程</h4><ul>
+<li>一个定义为volatile的变量是说这变量可能会被意想不到地改变，这样，编译器就不会去假设这个变量的值了。精确地说就是，优化器在用到这个变量时必须每次都小心地重新读取这个变量的值，而不是使用保存在寄存器里的备份<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">public class MyRunnable implements Runnable&#123;</div><div class="line"></div><div class="line">	//设置退出标志位</div><div class="line">	private volatile boolean flag = false;</div><div class="line">	@Override</div><div class="line">	public void run() &#123;</div><div class="line">		System.out.println(Thread.currentThread().getName()+&quot;建立&quot;);</div><div class="line">		try &#123;</div><div class="line">			Thread.sleep(1000L);</div><div class="line">		&#125; catch (InterruptedException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">		while(!flag)&#123;</div><div class="line">			//需要保护执行的内容，线程终止不会导致在某条代码处被终止</div><div class="line">			System.out.println(Thread.currentThread().getName()+&quot;：执行命令1&quot;);</div><div class="line">			System.out.println(Thread.currentThread().getName()+&quot;：执行命令2&quot;);</div><div class="line">		&#125;</div><div class="line">		System.out.println(Thread.currentThread().getName()+&quot;终止&quot;);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public void setFlag(boolean flag)&#123;</div><div class="line">		this.flag = flag;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">public class ThreadTest &#123;</div><div class="line">	public static void main(String[] args)&#123;</div><div class="line">		MyRunnable runnable = new MyRunnable();</div><div class="line">		//开启3个线程</div><div class="line">		new Thread(runnable,&quot;线程1&quot;).start();;</div><div class="line">		new Thread(runnable,&quot;线程2&quot;).start();;</div><div class="line">		new Thread(runnable,&quot;线程3&quot;).start();;</div><div class="line">		</div><div class="line">		try &#123;</div><div class="line">			Thread.sleep(2000L);</div><div class="line">		&#125; catch (InterruptedException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		//设置终止标志位，使进程终止</div><div class="line">		runnable.setFlag(true);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="排序的稳定性"><a href="#排序的稳定性" class="headerlink" title="排序的稳定性"></a>排序的稳定性</h4><ul>
-<li>相同值的元素，经过排序之后，多个相同值对应序列的排序没有发生改变，该排序方法就是稳定的；否则，不稳定</li>
-</ul>
-<h4 id="常用的排序算法"><a href="#常用的排序算法" class="headerlink" title="常用的排序算法"></a>常用的排序算法</h4><ul>
-<li><strong>简单算法 </strong>：冒泡排序&lt;简单选择排序&lt;直接插入排序   (<strong>性能</strong>)</li>
-<li><strong>改进算法 </strong>： 希尔排序、堆排序、归并排序、快速排序</li>
-<li><strong>冒泡排序 </strong>：相邻位做比较；时间复杂度O(n^2)</li>
-<li><strong>简单选择排序 </strong>：通过n-i次的关键字之间的比较，在n-i+1个记录中找到最小值与第i个记录交换；O(n^2)</li>
-<li><strong>直接插入排序 </strong>：设置i[0]做哨兵，从第二位（i）记录开始，和前一位比较，如果前一位的数据比较大，则将第i位的数据放到哨兵位，将前一位数据后推一位，知道前面的数据比存到哨兵为的数据小时，将哨兵位的数据放回到由于数据后推空出的位置；O(n^2)</li>
-<li><strong>希尔排序</strong>：相距某个“增量”做直接插入排序，该“增量”逐渐减小至1；O(n^3/2)</li>
-<li><strong>堆排序</strong>：将待排序序列构造成一个大顶堆。将堆顶的最大值与堆数组末尾元素交换，将剩余的n-1个元素重新构造成一个堆。反复执行；O(nlogn)</li>
-<li><strong>归并排序</strong>：（递归实现）元素两两归并成序列，序列再两两归并，重复直到最后变成一个有序的序列，又称“2路归并排序”；O(nlogn)；空间复杂度为O(n+logn)，比较占内存，但是效率高，稳定算法；；（非递归实现）空间复杂度为O(n)，尽量考虑使用非递归算法</li>
-<li><strong>快速排序</strong>：设置low指向尾端元素，high指向顶端元素，high往尾端端逐位移动，直到low&gt;high,交换数据；low往顶端逐位移动，直到low&gt;high,交换数据。重复以上步骤直到low和high靠到一起，此时low指向元素的左边元素都比low指向的元素小，右边则大。分别对左边和右边元素递归调用上面的排序方法。；最好O(logn)，平均O(logn)，最坏O(n)，不稳定排序</li>
-<li><strong>快速排序优化</strong>：  <ol>
-<li>优化选取枢轴（三数取中，九数取中）</li>
-<li>优化不必要的交换（增加哨兵）</li>
-<li>优化小数组的排序方案</li>
-<li>优化递归操作（尾递归）</li>
-</ol>
-</li>
+<p><img src="http://upload-images.jianshu.io/upload_images/3372306-b90c41d38a622228.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="运行结果开始"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3372306-16d0c6d0192b0552.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="运行结果结束"></p>
+<ul>
+<li>显然每个线程都会执行完命令2后才会被终止，这样就避免了stop()方法导致的数据不安全</li>
 </ul>
 
       
@@ -444,9 +407,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag"># 算法</a>
+            <a href="/tags/JAVA/" rel="tag"># JAVA</a>
           
-            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+            <a href="/tags/JAVASE/" rel="tag"># JAVASE</a>
           
         </div>
       
@@ -455,8 +418,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/15/GitHub Page+Hexo搭建博客详细教程/" rel="next" title="GitHub Page+Hexo搭建博客详细教程">
-                <i class="fa fa-chevron-left"></i> GitHub Page+Hexo搭建博客详细教程
+              <a href="/2017/01/23/JAVA_IO 和NIO/" rel="next" title="JAVA：IO和NIO">
+                <i class="fa fa-chevron-left"></i> JAVA：IO和NIO
               </a>
             
           </div>
@@ -465,8 +428,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/16/MVC模型/" rel="prev" title="MVC模型">
-                MVC模型 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/24/JAVA多线程/" rel="prev" title="JAVA：多线程">
+                JAVA：多线程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -610,7 +573,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#内排序和外排序"><span class="nav-number">1.</span> <span class="nav-text">内排序和外排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#排序的稳定性"><span class="nav-number">2.</span> <span class="nav-text">排序的稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用的排序算法"><span class="nav-number">3.</span> <span class="nav-text">常用的排序算法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用stop-方法关闭线程（已弃用）"><span class="nav-number">1.</span> <span class="nav-text">使用stop()方法关闭线程（已弃用）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用volatile标志位来关闭一个线程"><span class="nav-number">2.</span> <span class="nav-text">使用volatile标志位来关闭一个线程</span></a></li></ol></div>
             
 
           </div>
