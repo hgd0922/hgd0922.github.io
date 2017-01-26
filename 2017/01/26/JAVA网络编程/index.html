@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/01/26/JAVA网络编程/index.html">
 <meta property="og:site_name" content="Granda's Blog">
 <meta property="og:description" content="TCP单线程（最简单）1234567891011121314public class Server &amp;#123;	public static void main(String[] args) throws Exception&amp;#123;		//创建ServerSocket，监听30000端口的请求		ServerSocket ss = new ServerSocket(30000);		while">
-<meta property="og:updated_time" content="2017-01-26T09:26:02.000Z">
+<meta property="og:updated_time" content="2017-01-26T13:24:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA：网络编程">
 <meta name="twitter:description" content="TCP单线程（最简单）1234567891011121314public class Server &amp;#123;	public static void main(String[] args) throws Exception&amp;#123;		//创建ServerSocket，监听30000端口的请求		ServerSocket ss = new ServerSocket(30000);		while">
@@ -493,6 +493,57 @@ private class MyClientThread implements Runnable{
 public static void main(String[] args) throws IOException{
     new NClient().init();
 }
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### UDP</div><div class="line">- UDP是无连接的，只负责发送带有目标地址的数据包（DategramPacket），数据是否被正确接收，发送端并不知道。</div><div class="line">- 服务器端实例</div></pre></td></tr></table></figure></p>
+<p>public class UdpServer {<br>    public static final int PORT = 30001;<br>    private static final int DATA_LEN = 4096;<br>    byte[] inBuff = new byte[DATA_LEN];<br>    //创建DatagramPacket，传入的byte[]的长度决定了该DatagramPacket能放入多少数据<br>    private DatagramPacket inPacket = new DatagramPacket(inBuff, inBuff.length);<br>    private DatagramPacket outPacket;<br>    String[] data = new String[] { “aaa”, “bbb”, “ccc” };</p>
+<pre><code>public void init(){
+    try(    //创建DatagramSocket，绑定端口
+            DatagramSocket  socket = new DatagramSocket(PORT);)
+    {
+        for(int i = 0; i &lt; 1000 ; i++){
+            //阻塞方法，接收传入指定端口的DatagramPacket
+            socket.receive(inPacket);
+            //inPacket中的数据和创造inPacket时传入的byte[]中的数据是一样的，说明inPacket的数据是存在byte[]数组中的
+            //下面输出true
+            System.out.println(inBuff == inPacket.getData());
+            //输出inPacket中的内容
+            System.out.println(new String(inBuff,0,inPacket.getLength()));
+            byte[] sendData = data[i%3].getBytes();
+            //创建要发送的DatagramPacket，这时候除了要发送数据的byte[]数组，还要传入目标IP和端口
+            //getSocketAddress()返回的是new InetSocketAddress(getAddress(), getPort())
+            outPacket = new DatagramPacket(sendData , sendData.length,inPacket.getSocketAddress());
+            //发送数据包
+            socket.send(outPacket);
+        }
+    }catch(IOException e){
+        e.printStackTrace();
+    }
+}
+
+public static void main(String[] args){
+    new UdpServer().init();
+}
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- 客户端实例</div></pre></td></tr></table></figure></p>
+<p>public class UdpClient {<br>    public static final int PORT = 30001;<br>    public static final String DEST_IP = “127.0.0.1”;<br>    private static final int DATA_LEN = 4096;<br>    byte[] inBuff = new byte[DATA_LEN];<br>    private DatagramPacket inPacket = new DatagramPacket(inBuff , inBuff.length);<br>    private DatagramPacket outPacket = null;</p>
+<pre><code>public void init() throws IOException{
+    try(DatagramSocket socket = new DatagramSocket()){
+        //使用一个空数组构造要发送的数据包，同时也要传入接受端的IP和端口
+        outPacket = new DatagramPacket(new byte[0] , 0 ,InetAddress.getByName(DEST_IP),PORT);
+        Scanner scan = new Scanner(System.in);
+        while(scan.hasNext()){
+            byte[] buff = scan.nextLine().getBytes();
+            //重新设置要发送的数据包中的数据
+            outPacket.setData(buff);
+            socket.send(outPacket);
+            //阻塞方法
+            socket.receive(inPacket);
+            System.out.println(new String(inBuff,0,inPacket.getLength()));
+        }
+    }
+} 
+
+public static void main(String[] args) throws IOException{
+    new UdpClient().init();
+}
 </code></pre><p>}<br>```</p>
 
       
@@ -528,8 +579,8 @@ public static void main(String[] args) throws IOException{
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/24/JAVA多线程/" rel="next" title="JAVA：多线程">
-                <i class="fa fa-chevron-left"></i> JAVA：多线程
+              <a href="/2017/01/24/JAVA优雅地关闭一个线程/" rel="next" title="JAVA：如何优雅地关闭一个线程">
+                <i class="fa fa-chevron-left"></i> JAVA：如何优雅地关闭一个线程
               </a>
             
           </div>
