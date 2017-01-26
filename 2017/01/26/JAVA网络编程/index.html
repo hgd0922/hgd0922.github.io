@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/01/26/JAVA网络编程/index.html">
 <meta property="og:site_name" content="Granda's Blog">
 <meta property="og:description" content="TCP单线程（最简单）1234567891011121314public class Server &amp;#123;	public static void main(String[] args) throws Exception&amp;#123;		//创建ServerSocket，监听30000端口的请求		ServerSocket ss = new ServerSocket(30000);		while">
-<meta property="og:updated_time" content="2017-01-26T13:24:34.000Z">
+<meta property="og:updated_time" content="2017-01-26T13:33:43.806Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA：网络编程">
 <meta name="twitter:description" content="TCP单线程（最简单）1234567891011121314public class Server &amp;#123;	public static void main(String[] args) throws Exception&amp;#123;		//创建ServerSocket，监听30000端口的请求		ServerSocket ss = new ServerSocket(30000);		while">
@@ -376,175 +376,24 @@
 <h4 id="TCP基于NIO"><a href="#TCP基于NIO" class="headerlink" title="TCP基于NIO"></a>TCP基于NIO</h4><ul>
 <li>服务器端有ServerSocketChannel和SocketChannel。ServerSocketChannel负责用来监听客户端请求，SocketChannel负责和客户端传输数据，二者都需要注册到Selector中。</li>
 <li>客户端有SocketChannel，负责与服务器传输数据,也需要注册到Selector中</li>
-<li>创建一个ServerSocketChannel，并设置其为非阻塞模式，将其注册到指定Selector<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//通过open方法来打开一个未绑定的ServerSocketChannel实例</div><div class="line">ServerSocketChannel server = new ServerSocketChannel.open();</div><div class="line">//将ServerSocketChannel绑定到指定的IP地址</div><div class="line">InetSocketAddress isa = new InetSocketAddress(&quot;127.0.0.1&quot;,10000);</div><div class="line">server.bind(isa);</div><div class="line">//设置ServerSocketChannel以非阻塞模式工作</div><div class="line">server.configureBlocking(false);</div><div class="line">//将server注册到指定的Selector对象</div><div class="line">server.register(selector , SelectionKey.OP_ACCEPT);</div><div class="line">//之后可以调用Selecetor的select()方法来监听所有Channel</div><div class="line">```	</div><div class="line"></div><div class="line">- 编程实例 （服务器端）</div></pre></td></tr></table></figure>
+<li><p>创建一个ServerSocketChannel，并设置其为非阻塞模式，将其注册到指定Selector</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//通过open方法来打开一个未绑定的ServerSocketChannel实例</div><div class="line">ServerSocketChannel server = new ServerSocketChannel.open();</div><div class="line">//将ServerSocketChannel绑定到指定的IP地址</div><div class="line">InetSocketAddress isa = new InetSocketAddress(&quot;127.0.0.1&quot;,10000);</div><div class="line">server.bind(isa);</div><div class="line">//设置ServerSocketChannel以非阻塞模式工作</div><div class="line">server.configureBlocking(false);</div><div class="line">//将server注册到指定的Selector对象</div><div class="line">//之后可以调用Selecetor的select()方法来监听所有Channel</div><div class="line">server.register(selector , SelectionKey.OP_ACCEPT);</div></pre></td></tr></table></figure>
+</li>
+<li><p>编程实例 （服务器端）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line">public class NServer &#123;</div><div class="line">	private Selector selector = null;</div><div class="line">	static final int PORT = 12000;</div><div class="line">	//设置编译码的码字集，编译码的目的是将String转换成ByteBuffer，用于SocketChannel的传输</div><div class="line">	private Charset charset = Charset.forName(&quot;UTF-8&quot;);	</div><div class="line">	private void init() throws IOException&#123;</div><div class="line">		//开启Selector</div><div class="line">		selector = Selector.open();</div><div class="line">		//开启ServerSocketChannel</div><div class="line">		ServerSocketChannel server = ServerSocketChannel.open();</div><div class="line">		//ServerSocketChannel绑定IP和端口</div><div class="line">		InetSocketAddress isa = new InetSocketAddress(&quot;127.0.0.1&quot;,PORT);</div><div class="line">		server.bind(isa);</div><div class="line">		//设置ServerSocketChannel为非阻塞模式</div><div class="line">		server.configureBlocking(false);</div><div class="line">		//将ServerSocketChannel注册到Selector</div><div class="line">		server.register(selector, SelectionKey.OP_ACCEPT);</div><div class="line">		//select()方法是一个选择等待IO的Channel的阻塞方法，直到至少选中一个等待IO的Channel</div><div class="line">		//返回的是选中Channel的数量，没有被选择器取消选中的Channel不可重新选中</div><div class="line">		while(selector.select() &gt; 0)&#123;</div><div class="line">			//遍历选择器中选中的SelectionKey，每个Selection对应一个Channel</div><div class="line">			for(SelectionKey sk : selector.selectedKeys())&#123;</div><div class="line">				//将SelectionKey取消选中</div><div class="line">				selector.selectedKeys().remove(sk);</div><div class="line">				//如果sk对应的Channel有连接请求</div><div class="line">				if(sk.isAcceptable())&#123;</div><div class="line">					//创建与客户端通讯用的SocketChannel</div><div class="line">					SocketChannel sc = server.accept();</div><div class="line">					sc.configureBlocking(false);</div><div class="line">					//将SocketChannel注册到Selector</div><div class="line">					sc.register(selector, SelectionKey.OP_READ);</div><div class="line">					//将sk对应的Channel设置成准备接受其它请求，如果有连接请求，该Channel就会被select()方法选中</div><div class="line">					sk.interestOps(SelectionKey.OP_ACCEPT);</div><div class="line">				&#125;</div><div class="line">				//如果sk对应的Channel有数据需要读取</div><div class="line">				if(sk.isReadable())&#123;</div><div class="line">					SocketChannel sc = (SocketChannel)sk.channel();</div><div class="line">					ByteBuffer buff = ByteBuffer.allocate(1024);</div><div class="line">					String content = &quot;&quot;;</div><div class="line">					try&#123;</div><div class="line">						while(sc.read(buff) &gt; 0)&#123;</div><div class="line">							buff.flip();</div><div class="line">							content += charset.decode(buff);</div><div class="line">						&#125;</div><div class="line">						System.out.println(&quot;读取的数据：&quot; + content);</div><div class="line">						//将sk对应的Channel设置成准备接收数据，如果有数据传入，该Channel就会被select()方法选中</div><div class="line">						sk.interestOps(SelectionKey.OP_READ);</div><div class="line">					&#125;catch(IOException e)&#123;</div><div class="line">						sk.cancel();</div><div class="line">						if(sk.channel() != null)&#123;</div><div class="line">							sk.channel().close();</div><div class="line">						&#125;</div><div class="line">					&#125;</div><div class="line">					if(content.length() &gt; 0)&#123;</div><div class="line">						//遍历选择器中的所有key</div><div class="line">						for(SelectionKey key : selector.keys())&#123;</div><div class="line">							Channel targetChannel = key.channel();</div><div class="line">							//如果key对应的Channel是SocketChannel的实例</div><div class="line">							if(targetChannel instanceof SocketChannel)&#123;</div><div class="line">								SocketChannel dest = (SocketChannel) targetChannel;</div><div class="line">								dest.write(charset.encode(content));</div><div class="line">							&#125;</div><div class="line">						&#125;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public static void main(String[] args) throws IOException&#123;</div><div class="line">		new NServer().init();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>编程实例（客户端）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">public class NClient &#123;</div><div class="line">	private Selector selector = null;</div><div class="line">	static final int PORT = 12000;</div><div class="line">	private Charset charset = Charset.forName(&quot;UTF-8&quot;);</div><div class="line">	private SocketChannel sc = null;</div><div class="line">	</div><div class="line">	public void init() throws IOException&#123;</div><div class="line">		selector = Selector.open();</div><div class="line">		InetSocketAddress isa = new InetSocketAddress(&quot;127.0.0.1&quot;,PORT);</div><div class="line">		sc = SocketChannel.open(isa);</div><div class="line">		sc.configureBlocking(false);</div><div class="line">		sc.register(selector, SelectionKey.OP_READ);</div><div class="line">		new Thread(new MyClientThread()).start();</div><div class="line">		//检测键盘输入</div><div class="line">		Scanner scan = new Scanner(System.in);</div><div class="line">		while(scan.hasNext())&#123;</div><div class="line">			String line = scan.nextLine();</div><div class="line">			sc.write(charset.encode(line));</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	//每个客户端启动一个该线程，用于显示服务器发回来的消息</div><div class="line">	private class MyClientThread implements Runnable&#123;</div><div class="line">		@Override</div><div class="line">		public void run() &#123;</div><div class="line">			try&#123;</div><div class="line">				while(selector.select() &gt; 0)&#123;</div><div class="line">					for(SelectionKey sk : selector.selectedKeys())&#123;</div><div class="line">						selector.selectedKeys().remove(sk);</div><div class="line">						if(sk.isReadable())&#123;</div><div class="line">							SocketChannel sc = (SocketChannel) sk.channel();</div><div class="line">							ByteBuffer buff = ByteBuffer.allocate(1024);</div><div class="line">							String content = &quot;&quot;;</div><div class="line">							while(sc.read(buff) &gt; 0)&#123;</div><div class="line">								buff.flip();</div><div class="line">								content += charset.decode(buff);</div><div class="line">							&#125;</div><div class="line">							System.out.println(&quot;聊天信息：&quot; + content);</div><div class="line">							sk.interestOps(SelectionKey.OP_READ);</div><div class="line">						&#125;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125;catch(IOException e)&#123;</div><div class="line">				e.printStackTrace();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public static void main(String[] args) throws IOException&#123;</div><div class="line">		new NClient().init();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>public class NServer {<br>    private Selector selector = null;<br>    static final int PORT = 12000;<br>    //设置编译码的码字集，编译码的目的是将String转换成ByteBuffer，用于SocketChannel的传输<br>    private Charset charset = Charset.forName(“UTF-8”);</p>
-<pre><code>private void init() throws IOException{
-    //开启Selector
-    selector = Selector.open();
-    //开启ServerSocketChannel
-    ServerSocketChannel server = ServerSocketChannel.open();
-    //ServerSocketChannel绑定IP和端口
-    InetSocketAddress isa = new InetSocketAddress(&quot;127.0.0.1&quot;,PORT);
-    server.bind(isa);
-    //设置ServerSocketChannel为非阻塞模式
-    server.configureBlocking(false);
-    //将ServerSocketChannel注册到Selector
-    server.register(selector, SelectionKey.OP_ACCEPT);
-    //select()方法是一个选择等待IO的Channel的阻塞方法，直到至少选中一个等待IO的Channel
-    //返回的是选中Channel的数量，没有被选择器取消选中的Channel不可重新选中
-    while(selector.select() &gt; 0){
-        //遍历选择器中选中的SelectionKey，每个Selection对应一个Channel
-        for(SelectionKey sk : selector.selectedKeys()){
-            //将SelectionKey取消选中
-            selector.selectedKeys().remove(sk);
-            //如果sk对应的Channel有连接请求
-            if(sk.isAcceptable()){
-                //创建与客户端通讯用的SocketChannel
-                SocketChannel sc = server.accept();
-                sc.configureBlocking(false);
-                //将SocketChannel注册到Selector
-                sc.register(selector, SelectionKey.OP_READ);
-                //将sk对应的Channel设置成准备接受其它请求，如果有连接请求，该Channel就会被select()方法选中
-                sk.interestOps(SelectionKey.OP_ACCEPT);
-            }
-            //如果sk对应的Channel有数据需要读取
-            if(sk.isReadable()){
-                SocketChannel sc = (SocketChannel)sk.channel();
-                ByteBuffer buff = ByteBuffer.allocate(1024);
-                String content = &quot;&quot;;
-                try{
-                    while(sc.read(buff) &gt; 0){
-                        buff.flip();
-                        content += charset.decode(buff);
-                    }
-                    System.out.println(&quot;读取的数据：&quot; + content);
-                    //将sk对应的Channel设置成准备接收数据，如果有数据传入，该Channel就会被select()方法选中
-                    sk.interestOps(SelectionKey.OP_READ);
-                }catch(IOException e){
-                    sk.cancel();
-                    if(sk.channel() != null){
-                        sk.channel().close();
-                    }
-                }
-                if(content.length() &gt; 0){
-                    //遍历选择器中的所有key
-                    for(SelectionKey key : selector.keys()){
-                        Channel targetChannel = key.channel();
-                        //如果key对应的Channel是SocketChannel的实例
-                        if(targetChannel instanceof SocketChannel){
-                            SocketChannel dest = (SocketChannel) targetChannel;
-                            dest.write(charset.encode(content));
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-public static void main(String[] args) throws IOException{
-    new NServer().init();
-}
-</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 编程实例（客户端）</div></pre></td></tr></table></figure></p>
-<p>public class NClient {<br>    private Selector selector = null;<br>    static final int PORT = 12000;<br>    private Charset charset = Charset.forName(“UTF-8”);<br>    private SocketChannel sc = null;</p>
-<pre><code>public void init() throws IOException{
-    selector = Selector.open();
-    InetSocketAddress isa = new InetSocketAddress(&quot;127.0.0.1&quot;,PORT);
-    sc = SocketChannel.open(isa);
-    sc.configureBlocking(false);
-    sc.register(selector, SelectionKey.OP_READ);
-    new Thread(new MyClientThread()).start();
-    //检测键盘输入
-    Scanner scan = new Scanner(System.in);
-    while(scan.hasNext()){
-        String line = scan.nextLine();
-        sc.write(charset.encode(line));
-    }
-}
-//每个客户端启动一个该线程，用于显示服务器发回来的消息
-private class MyClientThread implements Runnable{
-    @Override
-    public void run() {
-        try{
-            while(selector.select() &gt; 0){
-                for(SelectionKey sk : selector.selectedKeys()){
-                    selector.selectedKeys().remove(sk);
-                    if(sk.isReadable()){
-                        SocketChannel sc = (SocketChannel) sk.channel();
-                        ByteBuffer buff = ByteBuffer.allocate(1024);
-                        String content = &quot;&quot;;
-                        while(sc.read(buff) &gt; 0){
-                            buff.flip();
-                            content += charset.decode(buff);
-                        }
-                        System.out.println(&quot;聊天信息：&quot; + content);
-                        sk.interestOps(SelectionKey.OP_READ);
-                    }
-                }
-            }
-        }catch(IOException e){
-            e.printStackTrace();
-        }
-    }
-}
-
-public static void main(String[] args) throws IOException{
-    new NClient().init();
-}
-</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### UDP</div><div class="line">- UDP是无连接的，只负责发送带有目标地址的数据包（DategramPacket），数据是否被正确接收，发送端并不知道。</div><div class="line">- 服务器端实例</div></pre></td></tr></table></figure></p>
-<p>public class UdpServer {<br>    public static final int PORT = 30001;<br>    private static final int DATA_LEN = 4096;<br>    byte[] inBuff = new byte[DATA_LEN];<br>    //创建DatagramPacket，传入的byte[]的长度决定了该DatagramPacket能放入多少数据<br>    private DatagramPacket inPacket = new DatagramPacket(inBuff, inBuff.length);<br>    private DatagramPacket outPacket;<br>    String[] data = new String[] { “aaa”, “bbb”, “ccc” };</p>
-<pre><code>public void init(){
-    try(    //创建DatagramSocket，绑定端口
-            DatagramSocket  socket = new DatagramSocket(PORT);)
-    {
-        for(int i = 0; i &lt; 1000 ; i++){
-            //阻塞方法，接收传入指定端口的DatagramPacket
-            socket.receive(inPacket);
-            //inPacket中的数据和创造inPacket时传入的byte[]中的数据是一样的，说明inPacket的数据是存在byte[]数组中的
-            //下面输出true
-            System.out.println(inBuff == inPacket.getData());
-            //输出inPacket中的内容
-            System.out.println(new String(inBuff,0,inPacket.getLength()));
-            byte[] sendData = data[i%3].getBytes();
-            //创建要发送的DatagramPacket，这时候除了要发送数据的byte[]数组，还要传入目标IP和端口
-            //getSocketAddress()返回的是new InetSocketAddress(getAddress(), getPort())
-            outPacket = new DatagramPacket(sendData , sendData.length,inPacket.getSocketAddress());
-            //发送数据包
-            socket.send(outPacket);
-        }
-    }catch(IOException e){
-        e.printStackTrace();
-    }
-}
-
-public static void main(String[] args){
-    new UdpServer().init();
-}
-</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- 客户端实例</div></pre></td></tr></table></figure></p>
-<p>public class UdpClient {<br>    public static final int PORT = 30001;<br>    public static final String DEST_IP = “127.0.0.1”;<br>    private static final int DATA_LEN = 4096;<br>    byte[] inBuff = new byte[DATA_LEN];<br>    private DatagramPacket inPacket = new DatagramPacket(inBuff , inBuff.length);<br>    private DatagramPacket outPacket = null;</p>
-<pre><code>public void init() throws IOException{
-    try(DatagramSocket socket = new DatagramSocket()){
-        //使用一个空数组构造要发送的数据包，同时也要传入接受端的IP和端口
-        outPacket = new DatagramPacket(new byte[0] , 0 ,InetAddress.getByName(DEST_IP),PORT);
-        Scanner scan = new Scanner(System.in);
-        while(scan.hasNext()){
-            byte[] buff = scan.nextLine().getBytes();
-            //重新设置要发送的数据包中的数据
-            outPacket.setData(buff);
-            socket.send(outPacket);
-            //阻塞方法
-            socket.receive(inPacket);
-            System.out.println(new String(inBuff,0,inPacket.getLength()));
-        }
-    }
-} 
-
-public static void main(String[] args) throws IOException{
-    new UdpClient().init();
-}
-</code></pre><p>}<br>```</p>
+<h4 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h4><ul>
+<li>UDP是无连接的，只负责发送带有目标地址的数据包（DategramPacket），数据是否被正确接收，发送端并不知道。</li>
+<li><p>服务器端实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">public class UdpServer &#123;</div><div class="line">	public static final int PORT = 30001;</div><div class="line">	private static final int DATA_LEN = 4096;</div><div class="line">	byte[] inBuff = new byte[DATA_LEN];</div><div class="line">	//创建DatagramPacket，传入的byte[]的长度决定了该DatagramPacket能放入多少数据</div><div class="line">	private DatagramPacket inPacket = new DatagramPacket(inBuff, inBuff.length);</div><div class="line">	private DatagramPacket outPacket;</div><div class="line">	String[] data = new String[] &#123; &quot;aaa&quot;, &quot;bbb&quot;, &quot;ccc&quot; &#125;;</div><div class="line"></div><div class="line">	public void init()&#123;</div><div class="line">		try(	//创建DatagramSocket，绑定端口</div><div class="line">				DatagramSocket  socket = new DatagramSocket(PORT);)</div><div class="line">		&#123;</div><div class="line">			for(int i = 0; i &lt; 1000 ; i++)&#123;</div><div class="line">				//阻塞方法，接收传入指定端口的DatagramPacket</div><div class="line">				socket.receive(inPacket);</div><div class="line">				//inPacket中的数据和创造inPacket时传入的byte[]中的数据是一样的，说明inPacket的数据是存在byte[]数组中的</div><div class="line">				//下面输出true</div><div class="line">				System.out.println(inBuff == inPacket.getData());</div><div class="line">				//输出inPacket中的内容</div><div class="line">				System.out.println(new String(inBuff,0,inPacket.getLength()));</div><div class="line">				byte[] sendData = data[i%3].getBytes();</div><div class="line">				//创建要发送的DatagramPacket，这时候除了要发送数据的byte[]数组，还要传入目标IP和端口</div><div class="line">				//getSocketAddress()返回的是new InetSocketAddress(getAddress(), getPort())</div><div class="line">				outPacket = new DatagramPacket(sendData , sendData.length,inPacket.getSocketAddress());</div><div class="line">				//发送数据包</div><div class="line">				socket.send(outPacket);</div><div class="line">			&#125;</div><div class="line">		&#125;catch(IOException e)&#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public static void main(String[] args)&#123;</div><div class="line">		new UdpServer().init();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>客户端实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">public class UdpClient &#123;</div><div class="line">	public static final int PORT = 30001;</div><div class="line">	public static final String DEST_IP = &quot;127.0.0.1&quot;;</div><div class="line">	private static final int DATA_LEN = 4096;</div><div class="line">	byte[] inBuff = new byte[DATA_LEN];</div><div class="line">	private DatagramPacket inPacket = new DatagramPacket(inBuff , inBuff.length);</div><div class="line">	private DatagramPacket outPacket = null;</div><div class="line">	</div><div class="line">	public void init() throws IOException&#123;</div><div class="line">		try(DatagramSocket socket = new DatagramSocket())&#123;</div><div class="line">			//使用一个空数组构造要发送的数据包，同时也要传入接受端的IP和端口</div><div class="line">			outPacket = new DatagramPacket(new byte[0] , 0 ,InetAddress.getByName(DEST_IP),PORT);</div><div class="line">			Scanner scan = new Scanner(System.in);</div><div class="line">			while(scan.hasNext())&#123;</div><div class="line">				byte[] buff = scan.nextLine().getBytes();</div><div class="line">				//重新设置要发送的数据包中的数据</div><div class="line">				outPacket.setData(buff);</div><div class="line">				socket.send(outPacket);</div><div class="line">				//阻塞方法</div><div class="line">				socket.receive(inPacket);</div><div class="line">				System.out.println(new String(inBuff,0,inPacket.getLength()));</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125; </div><div class="line">	</div><div class="line">	public static void main(String[] args) throws IOException&#123;</div><div class="line">		new UdpClient().init();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+</ul>
 
       
     </div>
@@ -730,7 +579,7 @@ public static void main(String[] args) throws IOException{
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP单线程（最简单）"><span class="nav-number">1.</span> <span class="nav-text">TCP单线程（最简单）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP多线程"><span class="nav-number">2.</span> <span class="nav-text">TCP多线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP基于NIO"><span class="nav-number">3.</span> <span class="nav-text">TCP基于NIO</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP单线程（最简单）"><span class="nav-number">1.</span> <span class="nav-text">TCP单线程（最简单）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP多线程"><span class="nav-number">2.</span> <span class="nav-text">TCP多线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP基于NIO"><span class="nav-number">3.</span> <span class="nav-text">TCP基于NIO</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UDP"><span class="nav-number">4.</span> <span class="nav-text">UDP</span></a></li></ol></div>
             
 
           </div>
