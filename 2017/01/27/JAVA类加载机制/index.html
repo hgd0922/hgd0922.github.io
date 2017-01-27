@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法,数据结构," />
+  <meta name="keywords" content="JAVA,JAVASE," />
 
 
 
@@ -84,49 +84,52 @@
 
 
 
-<meta name="description" content="内排序和外排序
-内排序：是指在排序过程中，待排序的所有记录都被放置在内存中
-外排序：由于记录数量过多不能够全部放置在内存中，排序需要在内外存之间多次交换顺序
-排序算法的性能影响因素：
-时间性能：要尽可能减少比较次数和移动次数
-辅助空间：执行算法需要的其他存储空间
-算法复杂性： 算法本身的复杂度
+<meta name="description" content="JVM和类
+系统可能在第一次使用某个类的时候加载该类，也可能采用预加载机制来加载某个类
+JVM进程终止：
+程序正常结束
+使用System.exit()或者Runtime.getRuntime().exit()结束程序
+程序运行过程中遇到未捕获的异常或者出错结束
+程序所在平台强制结束了JVM进程
 
 
 
-排序的稳定性
-相同值的元素，经过排序之后，多个相同值对应序列的排序没有发生改变，该排序方法就是稳定">
+类的加载
+类被加载到内存中时，会经过加载，连接，初始化三个步骤
+类的加载是指将编译好的class文">
 <meta property="og:type" content="article">
-<meta property="og:title" content="排序算法">
-<meta property="og:url" content="http://yoursite.com/2017/01/16/sort-algorithm/index.html">
+<meta property="og:title" content="JAVA：类加载机制">
+<meta property="og:url" content="http://yoursite.com/2017/01/27/JAVA类加载机制/index.html">
 <meta property="og:site_name" content="Granda's Blog">
-<meta property="og:description" content="内排序和外排序
-内排序：是指在排序过程中，待排序的所有记录都被放置在内存中
-外排序：由于记录数量过多不能够全部放置在内存中，排序需要在内外存之间多次交换顺序
-排序算法的性能影响因素：
-时间性能：要尽可能减少比较次数和移动次数
-辅助空间：执行算法需要的其他存储空间
-算法复杂性： 算法本身的复杂度
+<meta property="og:description" content="JVM和类
+系统可能在第一次使用某个类的时候加载该类，也可能采用预加载机制来加载某个类
+JVM进程终止：
+程序正常结束
+使用System.exit()或者Runtime.getRuntime().exit()结束程序
+程序运行过程中遇到未捕获的异常或者出错结束
+程序所在平台强制结束了JVM进程
 
 
 
-排序的稳定性
-相同值的元素，经过排序之后，多个相同值对应序列的排序没有发生改变，该排序方法就是稳定">
-<meta property="og:updated_time" content="2017-01-15T18:43:39.633Z">
+类的加载
+类被加载到内存中时，会经过加载，连接，初始化三个步骤
+类的加载是指将编译好的class文">
+<meta property="og:updated_time" content="2017-01-27T13:23:03.049Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="排序算法">
-<meta name="twitter:description" content="内排序和外排序
-内排序：是指在排序过程中，待排序的所有记录都被放置在内存中
-外排序：由于记录数量过多不能够全部放置在内存中，排序需要在内外存之间多次交换顺序
-排序算法的性能影响因素：
-时间性能：要尽可能减少比较次数和移动次数
-辅助空间：执行算法需要的其他存储空间
-算法复杂性： 算法本身的复杂度
+<meta name="twitter:title" content="JAVA：类加载机制">
+<meta name="twitter:description" content="JVM和类
+系统可能在第一次使用某个类的时候加载该类，也可能采用预加载机制来加载某个类
+JVM进程终止：
+程序正常结束
+使用System.exit()或者Runtime.getRuntime().exit()结束程序
+程序运行过程中遇到未捕获的异常或者出错结束
+程序所在平台强制结束了JVM进程
 
 
 
-排序的稳定性
-相同值的元素，经过排序之后，多个相同值对应序列的排序没有发生改变，该排序方法就是稳定">
+类的加载
+类被加载到内存中时，会经过加载，连接，初始化三个步骤
+类的加载是指将编译好的class文">
 
 
 
@@ -154,13 +157,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/16/sort-algorithm/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/01/27/JAVA类加载机制/"/>
 
 
 
 
 
-  <title> 排序算法 | Granda's Blog </title>
+  <title> JAVA：类加载机制 | Granda's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -293,7 +296,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/16/sort-algorithm/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/27/JAVA类加载机制/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Granda">
@@ -317,7 +320,7 @@
             
             
               
-                排序算法
+                JAVA：类加载机制
               
             
           </h1>
@@ -332,8 +335,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-16T02:41:51+08:00">
-                2017-01-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-27T23:00:51+08:00">
+                2017-01-27
               </time>
             
 
@@ -355,8 +358,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
+                  <a href="/categories/JAVASE/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVASE</span>
                   </a>
                 </span>
 
@@ -390,36 +393,55 @@
       
 
       
-        <h4 id="内排序和外排序"><a href="#内排序和外排序" class="headerlink" title="内排序和外排序"></a>内排序和外排序</h4><ul>
-<li><strong>内排序</strong>：是指在排序过程中，待排序的所有记录都被放置在内存中</li>
-<li><strong>外排序</strong>：由于记录数量过多不能够全部放置在内存中，排序需要在内外存之间多次交换顺序</li>
-<li><strong>排序算法的性能影响因素</strong>：<ol>
-<li>时间性能：要尽可能减少比较次数和移动次数</li>
-<li>辅助空间：执行算法需要的其他存储空间</li>
-<li>算法复杂性： 算法本身的复杂度</li>
+        <h4 id="JVM和类"><a href="#JVM和类" class="headerlink" title="JVM和类"></a>JVM和类</h4><ul>
+<li>系统可能在第一次使用某个类的时候加载该类，也可能采用预加载机制来加载某个类</li>
+<li>JVM进程终止：<ol>
+<li>程序正常结束</li>
+<li>使用System.exit()或者Runtime.getRuntime().exit()结束程序</li>
+<li>程序运行过程中遇到未捕获的异常或者出错结束</li>
+<li>程序所在平台强制结束了JVM进程</li>
 </ol>
 </li>
 </ul>
-<h4 id="排序的稳定性"><a href="#排序的稳定性" class="headerlink" title="排序的稳定性"></a>排序的稳定性</h4><ul>
-<li>相同值的元素，经过排序之后，多个相同值对应序列的排序没有发生改变，该排序方法就是稳定的；否则，不稳定</li>
+<h4 id="类的加载"><a href="#类的加载" class="headerlink" title="类的加载"></a>类的加载</h4><ul>
+<li>类被加载到内存中时，会经过加载，连接，初始化三个步骤</li>
+<li>类的加载是指将编译好的class文件读入内存中，并为之创建一个java.lang.Class对象</li>
+<li>类的加载由类加载器完成，可以通过继承ClassLoader基类来创建自己的类加载器</li>
+<li>使用不同的类加载器，可以从不同来源加载类的二进制数据（本地文件系统、JAR包、网络）</li>
 </ul>
-<h4 id="常用的排序算法"><a href="#常用的排序算法" class="headerlink" title="常用的排序算法"></a>常用的排序算法</h4><ul>
-<li><strong>简单算法 </strong>：冒泡排序&lt;简单选择排序&lt;直接插入排序   (<strong>性能</strong>)</li>
-<li><strong>改进算法 </strong>： 希尔排序、堆排序、归并排序、快速排序</li>
-<li><strong>冒泡排序 </strong>：相邻位做比较；时间复杂度O(n^2)</li>
-<li><strong>简单选择排序 </strong>：通过n-i次的关键字之间的比较，在n-i+1个记录中找到最小值与第i个记录交换；O(n^2)</li>
-<li><strong>直接插入排序 </strong>：设置i[0]做哨兵，从第二位（i）记录开始，和前一位比较，如果前一位的数据比较大，则将第i位的数据放到哨兵位，将前一位数据后推一位，知道前面的数据比存到哨兵为的数据小时，将哨兵位的数据放回到由于数据后推空出的位置；O(n^2)</li>
-<li><strong>希尔排序</strong>：相距某个“增量”做直接插入排序，该“增量”逐渐减小至1；O(n^3/2)</li>
-<li><strong>堆排序</strong>：将待排序序列构造成一个大顶堆。将堆顶的最大值与堆数组末尾元素交换，将剩余的n-1个元素重新构造成一个堆。反复执行；O(nlogn)</li>
-<li><strong>归并排序</strong>：（递归实现）元素两两归并成序列，序列再两两归并，重复直到最后变成一个有序的序列，又称“2路归并排序”；O(nlogn)；空间复杂度为O(n+logn)，比较占内存，但是效率高，稳定算法；；（非递归实现）空间复杂度为O(n)，尽量考虑使用非递归算法</li>
-<li><strong>快速排序</strong>：设置low指向尾端元素，high指向顶端元素，high往尾端端逐位移动，直到low&gt;high,交换数据；low往顶端逐位移动，直到low&gt;high,交换数据。重复以上步骤直到low和high靠到一起，此时low指向元素的左边元素都比low指向的元素小，右边则大。分别对左边和右边元素递归调用上面的排序方法。；最好O(logn)，平均O(logn)，最坏O(n)，不稳定排序</li>
-<li><strong>快速排序优化</strong>：  <ol>
-<li>优化选取枢轴（三数取中，九数取中）</li>
-<li>优化不必要的交换（增加哨兵）</li>
-<li>优化小数组的排序方案</li>
-<li>优化递归操作（尾递归）</li>
+<h4 id="类的连接"><a href="#类的连接" class="headerlink" title="类的连接"></a>类的连接</h4><ul>
+<li>连接阶段负责把类的二进制文件合并到JRE中</li>
+<li>连接有三个阶段：<ol>
+<li>验证：检验被加载的类是否有正确的内部结构</li>
+<li>准备：负责为类的类变量分配内存，并设置默认初始值</li>
+<li>解析：将类的二进制数据中的符号引用替换成直接引用（编译到二进制文件的是符号引用，类加载之后才是直接引用）</li>
 </ol>
 </li>
+</ul>
+<h4 id="类的初始化"><a href="#类的初始化" class="headerlink" title="类的初始化"></a>类的初始化</h4><ul>
+<li>主要是对类变量进行初始化</li>
+<li>要先初始化该类的父类，所以JVM最先初始化的是java.lang.Objext类</li>
+<li>类初始化的时机：<ol>
+<li>创建类的实例</li>
+<li>调用某个类方法</li>
+<li>访问某个类变量</li>
+<li>使用反射来创建Class对象</li>
+<li>使用java运行某个主类</li>
+</ol>
+</li>
+<li>final修饰的类变量，如果值在编译的时候已经确定，那么该变量是“宏变量”，在编译的时候会被替换，调用“宏变量”时，不会导致被加载</li>
+<li>使用ClassLoader类的loadClass()方法，只会加载该类，不会执行类的初始化</li>
+<li>使用ClassLoader类的forName()方法才会强制初始化该类</li>
+</ul>
+<h4 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h4><ul>
+<li>在JVM中，一个类用类的全类名＋类加载标识</li>
+<li>JVM启动时，会形成由三个类加载器组成初始类加载器层次结构：<ol>
+<li>Bootstrap ClassLoader:根类加载器，由JVM自身实现，负责加载Java核心类</li>
+<li>Extension ClassLoader:扩展类加载器，负责加载JRE扩展目录（%JAVA_HOME%/jre/lib/ext）中JAR包的类</li>
+<li>System ClassLoader:系统类加载器,负责JVM启动时来自java命令的-classpath选项</li>
+</ol>
+</li>
+<li>URLClassLoader类：URLClassLoader(URL[] urls)，使用默认的父类加载器创建一个ClassLoader对象，指定类的URL，可以是本地文件系统，也可以来自网络。然后调用该对象的loadClass()方法来加载指定的类<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">URL[] urls = &#123;new URL(&quot;file:mysql-connector-java-5.1.30-bin.jar&quot;)&#125;;</div><div class="line">URLClassLoader myClassLoader = new URLClassLoader(urls);</div><div class="line">Driver driver = (Driver)myClassLoader.loadClass(&quot;com.mysql.jdbc.Driver&quot;).newInstance();</div></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -444,9 +466,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag"># 算法</a>
+            <a href="/tags/JAVA/" rel="tag"># JAVA</a>
           
-            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+            <a href="/tags/JAVASE/" rel="tag"># JAVASE</a>
           
         </div>
       
@@ -455,8 +477,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/15/GitHub Page+Hexo搭建博客详细教程/" rel="next" title="GitHub Page+Hexo搭建博客详细教程">
-                <i class="fa fa-chevron-left"></i> GitHub Page+Hexo搭建博客详细教程
+              <a href="/2017/01/27/JAVA动态代理/" rel="next" title="JAVA：动态代理">
+                <i class="fa fa-chevron-left"></i> JAVA：动态代理
               </a>
             
           </div>
@@ -465,8 +487,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/16/MVC模型/" rel="prev" title="MVC模型">
-                MVC模型 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/27/JAVA反射/" rel="prev" title="JAVA：反射">
+                JAVA：反射 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -610,7 +632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#内排序和外排序"><span class="nav-number">1.</span> <span class="nav-text">内排序和外排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#排序的稳定性"><span class="nav-number">2.</span> <span class="nav-text">排序的稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用的排序算法"><span class="nav-number">3.</span> <span class="nav-text">常用的排序算法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#JVM和类"><span class="nav-number">1.</span> <span class="nav-text">JVM和类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类的加载"><span class="nav-number">2.</span> <span class="nav-text">类的加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类的连接"><span class="nav-number">3.</span> <span class="nav-text">类的连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类的初始化"><span class="nav-number">4.</span> <span class="nav-text">类的初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类加载器"><span class="nav-number">5.</span> <span class="nav-text">类加载器</span></a></li></ol></div>
             
 
           </div>
